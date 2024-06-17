@@ -2,7 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/ui/Navbar/Navbar";
 import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
@@ -24,7 +24,9 @@ export default function Home() {
   );
 }
 
-export function Category() {
+export default Home
+
+export const Category = () => {
   const category = [
     {
       image: "/assets/category1.png",
@@ -56,17 +58,25 @@ export function Category() {
       <h1 className="text-center font-normal text-2xl">Shop by Category</h1>
       <div className="scroll flex overflow-x-scroll snap-mandatory snap-x no-scrollbar gap-x-2 mt-5">
         {category.map((categoryItem, index) => (
-          <div className="flex flex-col shrink-0 items-center justify-center gap-y-3" key={index}>
+          <div
+            className="flex flex-col shrink-0 items-center justify-center gap-y-3"
+            key={index}
+          >
             <Image
               src={categoryItem.image}
               alt="shirt"
               width={230}
               height={263}
             />
-            <Link href="" className="uppercase underline font-normal text-sm lg:text-sm ">{categoryItem.name}</Link>
+            <Link
+              href=""
+              className="uppercase underline font-normal text-sm lg:text-sm "
+            >
+              {categoryItem.name}
+            </Link>
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
