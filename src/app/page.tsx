@@ -22,8 +22,7 @@ const Home = () => {
       <Category />
     </main>
   );
-}
-
+};
 
 const Category = () => {
   const category = [
@@ -75,6 +74,26 @@ const Category = () => {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-20">
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center">
+          <h3 className="font-normal text-5xl text-white">New Arrivals</h3>
+          <button className="uppercase w-[80%] mx-auto lg:mx-auto lg:w-[80%] font-normal text-sm text-[#262626] bg-white py-3">
+            shop the latest
+          </button>
+        </div>
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px]  w-full flex flex-col gap-y-3.5 items-center justify-center">
+          <h3 className="font-normal text-5xl text-white">New Arrivals</h3>
+          <button className="uppercase w-[80%] mx-auto lg:mx-auto lg:w-[80%] font-normal text-sm text-[#262626] bg-white py-3">
+            shop the latest
+          </button>
+        </div>
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center">
+          <h3 className="font-normal text-5xl text-white">New Arrivals</h3>
+          <button className="uppercase w-[80%] mx-auto lg:mx-auto lg:w-[80%] font-normal text-sm text-[#262626] bg-white py-3">
+            shop the latest
+          </button>
+        </div>
       </div>
     </div>
   );
