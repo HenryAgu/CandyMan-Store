@@ -56,7 +56,7 @@ export function Category() {
       <h1 className="text-center font-normal text-2xl">Shop by Category</h1>
       <div className="scroll flex overflow-x-scroll snap-mandatory snap-x no-scrollbar gap-x-2 mt-5">
         {category.map((categoryItem, index) => (
-          <div className="flex flex-col shrink-0 items-center justify-center gap-y-3">
+          <div className="flex flex-col shrink-0 items-center justify-center gap-y-3" key={index}>
             <Image
               src={categoryItem.image}
               alt="shirt"
