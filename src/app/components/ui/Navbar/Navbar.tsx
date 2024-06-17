@@ -1,16 +1,22 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 
-import React from "react";
+import { CiMenuFries } from "react-icons/ci";
+import { AiOutlineClose } from "react-icons/ai";
+import { useState } from "react";
 
 export const Header = () => {
   return (
-    <div className="flex items-center justify-between bg-black text-white h-auto px-8 py-2 w-full">
+    <div className="flex flex-col gap-y-1 lg:flex-row items-center justify-between bg-black text-white h-auto px-8 py-2 w-full">
       <div></div>
       <div>
-        <p className="flex items-center text-xs font-semibold gap-x-1.5 tracking-wider">
+        <p className="flex flex-col gap-y-1 lg:flex-row items-center text-[10px] lg:text-xs font-semibold lg:gap-y-0 lg:gap-x-1.5 tracking-wider">
           Get early access on launches and offers.
-          <Link href="" className="flex items-center text-xs font-semibold">
+          <Link
+            href=""
+            className="flex items-center text-[10px] lg:text-xs font-semibold"
+          >
             <span className="font-inter font-normal underline">
               Sign Up For Texts
             </span>
@@ -23,9 +29,9 @@ export const Header = () => {
           </Link>
         </p>
       </div>
-      <div className="flex items-center gap-x-3">
+      <div className="flex items-center gap-x-1.5 lg:gap-x-3">
         <Image src="/assets/us 1.svg" alt="US-flag" width={25} height={15} />
-        <p className="text-xs font-normal tracking-wider">USD</p>
+        <p className="text-[10px] lg:text-xs font-normal tracking-wider">USD</p>
       </div>
     </div>
   );
@@ -70,79 +76,172 @@ const Navbar = () => {
       name: "Sale",
     },
   ];
+
+  const [showNavbar, setShowNavbar] = useState(false);
+  function handleShowNavbar(){
+    setShowNavbar(true);
+  }
+
+  function handleCloseNavbar(){
+    setShowNavbar(false)
+  }
   return (
     <section className="w-screen font-inter">
       <Header />
-      <div className="border-b border-[#DDDBDC]">
-        <div className="w-11/12 mx-auto my-0 flex items-center h-[10vh] justify-between">
-          <div className="h-[10vh]">
-            <nav className="h-full flex items-center gap-x-5 text-[#262626]">
-              <Link
-                href=""
-                className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-              >
-                Women
-              </Link>
-              <Link
-                href=""
-                className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-              >
-                Men
-              </Link>
-              <Link
-                href=""
-                className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-              >
-                About
-              </Link>
-              <Link
-                href=""
-                className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-              >
-                Everworld Stories
-              </Link>
-            </nav>
-          </div>
-          <div className="ml-[-16vw]">
-            <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
-              CANDY MAN STORE
-            </h1>
-          </div>
-          <div className="flex items-center gap-x-3">
-            <button>
-              <Image
-                src="/assets/MagnifyingGlass.svg"
-                alt="search"
-                width={16}
-                height={16}
-              />
-            </button>
-            <button>
-              <Image src="/assets/User.svg" alt="user" width={16} height={16} />
-            </button>
-            <button>
-              <Image
-                src="/assets/ShoppingCartSimple.svg"
-                alt="cart"
-                width={16}
-                height={16}
-              />
-            </button>
+      <div className="block lg:hidden">
+        <div className="border-b border-[#DDDBDC]">
+          <div className="w-[95%] mx-auto my-0">
+            <div className="py-3 flex items-center justify-between">
+              <div>
+                <button onClick={handleShowNavbar}>
+                  <CiMenuFries className="text-[#262626] font-black text-xl" />
+                </button>
+              </div>
+              <div className="ml-[6vw]">
+                <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
+                  CANDY MAN STORE
+                </h1>
+              </div>
+              <div className="flex items-center gap-x-3">
+                <button>
+                  <Image
+                    src="/assets/MagnifyingGlass.svg"
+                    alt="search"
+                    width={16}
+                    height={16}
+                  />
+                </button>
+                <button>
+                  <Image
+                    src="/assets/User.svg"
+                    alt="user"
+                    width={16}
+                    height={16}
+                  />
+                </button>
+                <button>
+                  <Image
+                    src="/assets/ShoppingCartSimple.svg"
+                    alt="cart"
+                    width={16}
+                    height={16}
+                  />
+                </button>
+              </div>
+              {showNavbar && (
+                <div className="absolute md:top-[7vh] top-[10vh] bg-white w-[95%] shadow-md">
+                  <nav className="h-fit flex flex-col p-3 gap-y-5 text-[#262626]">
+                    <button onClick={handleCloseNavbar}>
+                      <AiOutlineClose className="text-[#262626] font-black text-xl" />
+                    </button>
+                    <Link
+                      href=""
+                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                    >
+                      Women
+                    </Link>
+                    <Link
+                      href=""
+                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                    >
+                      Men
+                    </Link>
+                    <Link
+                      href=""
+                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                    >
+                      About
+                    </Link>
+                    <Link
+                      href=""
+                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                    >
+                      Everworld Stories
+                    </Link>
+                  </nav>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center border-b border-[#DDDBDC] h-[10vh]">
-        <nav className="h-full flex items-center gap-x-5 text-[#262626] ml-[-2vw]">
-          {miniNavbar.map((nav, index) => (
-            <Link
-              href={nav.path}
-              key={index}
-              className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-            >
-              {nav.name}
-            </Link>
-          ))}
-        </nav>
+      <div className="hidden lg:block">
+        <div className="border-b border-[#DDDBDC]">
+          <div className="w-11/12 mx-auto my-0 flex items-center h-[10vh] justify-between">
+            <div className="h-[10vh]">
+              <nav className="h-full flex items-center gap-x-5 text-[#262626]">
+                <Link
+                  href=""
+                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                >
+                  Women
+                </Link>
+                <Link
+                  href=""
+                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                >
+                  Men
+                </Link>
+                <Link
+                  href=""
+                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                >
+                  About
+                </Link>
+                <Link
+                  href=""
+                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                >
+                  Everworld Stories
+                </Link>
+              </nav>
+            </div>
+            <div className="ml-[-16vw]">
+              <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
+                CANDY MAN STORE
+              </h1>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <button>
+                <Image
+                  src="/assets/MagnifyingGlass.svg"
+                  alt="search"
+                  width={16}
+                  height={16}
+                />
+              </button>
+              <button>
+                <Image
+                  src="/assets/User.svg"
+                  alt="user"
+                  width={16}
+                  height={16}
+                />
+              </button>
+              <button>
+                <Image
+                  src="/assets/ShoppingCartSimple.svg"
+                  alt="cart"
+                  width={16}
+                  height={16}
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center border-b border-[#DDDBDC] h-[10vh]">
+          <nav className="h-full flex items-center gap-x-5 text-[#262626] ml-[-2vw]">
+            {miniNavbar.map((nav, index) => (
+              <Link
+                href={nav.path}
+                key={index}
+                className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+              >
+                {nav.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </section>
   );
