@@ -24,9 +24,8 @@ const Home = () => {
   );
 }
 
-export default Home
 
-export const Category = () => {
+const Category = () => {
   const category = [
     {
       image: "/assets/category1.png",
@@ -80,3 +79,5 @@ export const Category = () => {
     </div>
   );
 };
+
+export default Home;
