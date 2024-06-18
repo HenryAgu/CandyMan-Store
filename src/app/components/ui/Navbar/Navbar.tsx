@@ -11,7 +11,7 @@ export const Header = () => {
     <div className="flex flex-col gap-y-1 lg:flex-row items-center justify-between bg-black text-white h-auto px-8 py-2 w-full">
       <div></div>
       <div>
-        <p className="flex flex-col gap-y-1 lg:flex-row items-center text-[10px] lg:text-xs font-semibold lg:gap-y-0 lg:gap-x-1.5 tracking-wider">
+        <p className="flex flex-col gap-y-1 lg:flex-row items-center text-[10px] lg:text-xs font-semibold font-inter lg:gap-y-0 lg:gap-x-1.5 tracking-wider">
           Get early access on launches and offers.
           <Link
             href=""
@@ -172,25 +172,25 @@ const Navbar = () => {
               <nav className="h-full flex items-center gap-x-5 text-[#262626]">
                 <Link
                   href=""
-                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
                   Women
                 </Link>
                 <Link
                   href=""
-                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
                   Men
                 </Link>
                 <Link
                   href=""
-                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
                   About
                 </Link>
                 <Link
                   href=""
-                  className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
                   Everworld Stories
                 </Link>
@@ -235,7 +235,7 @@ const Navbar = () => {
               <Link
                 href={nav.path}
                 key={index}
-                className="h-full font-normal text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
+                className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
               >
                 {nav.name}
               </Link>
