@@ -1,8 +1,21 @@
 import Image from "next/image";
 import Navbar from "./components/ui/Navbar/Navbar";
 import Link from "next/link";
+import { FC } from "react";
 
-const Home = () => {
+interface CategoryItem {
+  image: string;
+  name: string;
+}
+
+interface FavouriteItem {
+  image: string;
+  name: string;
+  brand: string;
+  price: string;
+}
+
+const Home: FC = () => {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
@@ -21,12 +34,13 @@ const Home = () => {
       </div>
       <Category />
       <Favourite />
+      <Testimonial/>
     </main>
   );
 };
 
-const Category = () => {
-  const category = [
+const Category: FC = () => {
+  const category: CategoryItem[] = [
     {
       image: "/assets/category1.png",
       name: "Shirts",
@@ -52,6 +66,7 @@ const Category = () => {
       name: "outwear",
     },
   ];
+
   return (
     <div className="w-11/12 mx-auto my-10 lg:my-14">
       <h1 className="text-center font-normal font-inter text-2xl">
@@ -65,7 +80,7 @@ const Category = () => {
           >
             <Image
               src={categoryItem.image}
-              alt="shirt"
+              alt={categoryItem.name}
               width={230}
               height={263}
             />
@@ -79,7 +94,7 @@ const Category = () => {
         ))}
       </div>
       <div className="hidden lg:grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-10 lg:my-20">
-        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center group">
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center group hover:grayscale">
           <h3 className="font-inter font-normal text-5xl text-white opacity-0 transition-opacity duration-1000 group-hover:opacity-100">
             New Arrivals
           </h3>
@@ -89,7 +104,7 @@ const Category = () => {
             </button>
           </Link>
         </div>
-        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px]  w-full flex flex-col gap-y-3.5 items-center justify-center group">
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px]  w-full flex flex-col gap-y-3.5 items-center justify-center group hover:grayscale">
           <h3 className="font-inter font-normal text-5xl text-white opacity-0 transition-opacity duration-1000 group-hover:opacity-100">
             New Arrivals
           </h3>
@@ -99,7 +114,7 @@ const Category = () => {
             </button>
           </Link>
         </div>
-        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center group">
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center group hover:grayscale">
           <h3 className="font-inter font-normal text-5xl text-white opacity-0 transition-opacity duration-1000 group-hover:opacity-100">
             New Arrivals
           </h3>
@@ -159,8 +174,8 @@ const Category = () => {
   );
 };
 
-const Favourite = () => {
-  const favouriteItems = [
+const Favourite: FC = () => {
+  const favouriteItems: FavouriteItem[] = [
     {
       image: "/assets/image-1.png",
       name: "The Waffle Long-Sleeve Crew",
@@ -198,6 +213,7 @@ const Favourite = () => {
       price: "90",
     },
   ];
+
   return (
     <div className="w-11/12 mx-auto my-10 lg:my-32">
       <div className="text-center">
@@ -214,7 +230,7 @@ const Favourite = () => {
             className="flex flex-col shrink-0 items-center justify-center gap-y-3"
             key={index}
           >
-            <Image src={item.image} alt="item-image" width={282} height={420} />
+            <Image src={item.image} alt={item.name} width={282} height={420} />
             <div className="w-full flex justify-between">
               <div className="flex flex-col gap-y-1">
                 <p className="text-xs font-normal font-inter text-[#262626]">{item.name}</p>
@@ -230,5 +246,21 @@ const Favourite = () => {
     </div>
   );
 };
+
+const Testimonial: FC = () =>{
+  return(
+    <div className="md:w-11/12 lg:w-9/12 mx-auto mb-24 flex flex-col lg:flex-row items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-x-10">
+      <div className="flex flex-col items-center lg:items-start lg:w-full">
+        <span className="font-normal font-inter text-base">People Are Talking</span>
+        <img src="/assets/star.svg" alt="stars" className=" mt-5"/>
+        <h4 className="font-normal font-inter text-2xl mt-3 text-center lg:text-left">“Love this shirt! Fits perfectly and <br /> the fabric is thick without <br /> being stiff.”</h4>
+        <p className="font-normal text-sm font-inter mt-5">-- JonSnSF, The Heavyweight Overshirt</p>
+      </div>
+      <div className="w-11/12 lg:w-full">
+        <Image src="/assets/testimonial.png" alt="testimonial" width={530} height={695}/>
+      </div>
+    </div>
+  )
+}
 
 export default Home;
