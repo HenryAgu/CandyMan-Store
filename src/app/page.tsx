@@ -34,7 +34,8 @@ const Home: FC = () => {
       </div>
       <Category />
       <Favourite />
-      <Testimonial/>
+      <Testimonial />
+      <Fashion />
     </main>
   );
 };
@@ -233,11 +234,17 @@ const Favourite: FC = () => {
             <Image src={item.image} alt={item.name} width={282} height={420} />
             <div className="w-full flex justify-between">
               <div className="flex flex-col gap-y-1">
-                <p className="text-xs font-normal font-inter text-[#262626]">{item.name}</p>
-                <span className="text-xs font-normal font-inter text-[#737373]">{item.brand}</span>
+                <p className="text-xs font-normal font-inter text-[#262626]">
+                  {item.name}
+                </p>
+                <span className="text-xs font-normal font-inter text-[#737373]">
+                  {item.brand}
+                </span>
               </div>
               <div>
-                <p className="text-xs font-normal font-inter text-[#262626]">${item.price}</p>
+                <p className="text-xs font-normal font-inter text-[#262626]">
+                  ${item.price}
+                </p>
               </div>
             </div>
           </div>
@@ -247,20 +254,79 @@ const Favourite: FC = () => {
   );
 };
 
-const Testimonial: FC = () =>{
-  return(
-    <div className="md:w-11/12 lg:w-9/12 mx-auto mb-24 flex flex-col lg:flex-row items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-x-10">
+const Testimonial: FC = () => {
+  return (
+    <div className="md:w-11/12 lg:w-[78%] mx-auto mb-24 flex flex-col lg:flex-row items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-x-10">
       <div className="flex flex-col items-center lg:items-start lg:w-full">
-        <span className="font-normal font-inter text-base">People Are Talking</span>
-        <img src="/assets/star.svg" alt="stars" className=" mt-5"/>
-        <h4 className="font-normal font-inter text-2xl mt-3 text-center lg:text-left">“Love this shirt! Fits perfectly and <br /> the fabric is thick without <br /> being stiff.”</h4>
-        <p className="font-normal text-sm font-inter mt-5">-- JonSnSF, The Heavyweight Overshirt</p>
+        <span className="font-normal font-inter text-base">
+          People Are Talking
+        </span>
+        <img src="/assets/star.svg" alt="stars" className=" mt-5" />
+        <h4 className="font-normal font-inter text-2xl mt-3 text-center lg:text-left">
+          “Love this shirt! Fits perfectly and <br /> the fabric is thick
+          without <br /> being stiff.”
+        </h4>
+        <p className="font-normal text-sm font-inter mt-5">
+          -- JonSnSF, The Heavyweight Overshirt
+        </p>
       </div>
-      <div className="w-11/12 lg:w-full">
-        <Image src="/assets/testimonial.png" alt="testimonial" width={530} height={695}/>
+      <div className="w-11/12 flex items-center justify-center lg:w-full">
+        <Image
+          src="/assets/testimonial.png"
+          alt="testimonial"
+          width={530}
+          height={695}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
+
+const Fashion: FC = () => {
+  return (
+    <div className="w-11/12 lg:w-[70%] mx-auto lg:my-10 lg:mb-20 flex flex-col lg:flex-row items-center gap-y-5 lg:gap-y-0 lg:gap-x-5">
+      <div>
+        <p className="text-center font-inter font-normal text-2xl mb-5">
+          Our Holiday Gift Picks
+        </p>
+        <Image
+          src="/assets/Gift.png"
+          alt=""
+          width={505}
+          height={626}
+          className="transition-grayscale duration-500 hover:grayscale"
+        />
+        <div className="flex flex-col justify-center items-center gap-y-2 mt-3">
+          <span className="font-normal font-inter text-center text-[#262626] text-sm">
+            The best presents for everyone on your list.
+          </span>
+          <Link href="" className="underline text-sm font-inter font-normal">
+            Read More
+          </Link>
+        </div>
+      </div>
+      <div>
+        <p className="text-center font-inter font-normal text-2xl mb-5">
+          Cleaner Fashion
+        </p>
+        <Image
+          src="/assets/Fashion.png"
+          alt=""
+          width={505}
+          height={626}
+          className="transition-grayscale duration-500 hover:grayscale"
+        />
+        <div className="flex flex-col justify-center items-center gap-y-2 mt-3">
+          <span className="font-normal font-inter text-center text-[#262626] text-sm">
+            See the sustainability efforts behind each of our products.
+          </span>
+          <Link href="" className="underline text-sm font-inter font-normal">
+            Learn More
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Home;
