@@ -6,7 +6,12 @@ import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 
-export const Header = () => {
+interface NavItem {
+  path: string;
+  name: string;
+}
+
+export const Header: React.FC = () => {
   return (
     <div className="flex flex-col gap-y-1 lg:flex-row items-center justify-between bg-black text-white h-auto px-8 py-2 w-full">
       <div></div>
@@ -37,8 +42,8 @@ export const Header = () => {
   );
 };
 
-const Navbar = () => {
-  const miniNavbar = [
+const Navbar: React.FC = () => {
+  const miniNavbar: NavItem[] = [
     {
       path: "",
       name: "Holiday Gifting",
@@ -77,14 +82,16 @@ const Navbar = () => {
     },
   ];
 
-  const [showNavbar, setShowNavbar] = useState(false);
-  function handleShowNavbar(){
+  const [showNavbar, setShowNavbar] = useState<boolean>(false);
+  
+  const handleShowNavbar = () => {
     setShowNavbar(true);
-  }
+  };
 
-  function handleCloseNavbar(){
-    setShowNavbar(false)
-  }
+  const handleCloseNavbar = () => {
+    setShowNavbar(false);
+  };
+
   return (
     <section className="w-screen font-inter">
       <Header />
@@ -246,4 +253,5 @@ const Navbar = () => {
     </section>
   );
 };
+
 export default Navbar;

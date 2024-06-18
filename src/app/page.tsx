@@ -20,6 +20,7 @@ const Home = () => {
         </div>
       </div>
       <Category />
+      <Favourite />
     </main>
   );
 };
@@ -52,7 +53,7 @@ const Category = () => {
     },
   ];
   return (
-    <div className="w-11/12 mx-auto my-14">
+    <div className="w-11/12 mx-auto my-10 lg:my-14">
       <h1 className="text-center font-normal font-inter text-2xl">
         Shop by Category
       </h1>
@@ -77,7 +78,7 @@ const Category = () => {
           </div>
         ))}
       </div>
-      <div className="hidden lg:grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-20">
+      <div className="hidden lg:grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-10 lg:my-20">
         <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center group">
           <h3 className="font-inter font-normal text-5xl text-white opacity-0 transition-opacity duration-1000 group-hover:opacity-100">
             New Arrivals
@@ -109,7 +110,7 @@ const Category = () => {
           </Link>
         </div>
       </div>
-      <div className="grid lg:hidden md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-20">
+      <div className="grid lg:hidden md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-10 lg:my-20">
         <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center">
           <h3 className="font-inter font-normal text-5xl text-white">
             New Arrivals
@@ -153,6 +154,78 @@ const Category = () => {
             learn more
           </button>
         </Link>
+      </div>
+    </div>
+  );
+};
+
+const Favourite = () => {
+  const favouriteItems = [
+    {
+      image: "/assets/image-1.png",
+      name: "The Waffle Long-Sleeve Crew",
+      brand: "Bone",
+      price: "90",
+    },
+    {
+      image: "/assets/image-2.png",
+      name: "The Bomber Jacket | Uniform",
+      brand: "Toasted Coconut",
+      price: "148",
+    },
+    {
+      image: "/assets/image-3.png",
+      name: "The Slim 4-Way Stretch Organic Jean | Uniform",
+      brand: "Bone",
+      price: "98",
+    },
+    {
+      image: "/assets/image-1.png",
+      name: "The Essential Organic Crew",
+      brand: "Vintage Black",
+      price: "30",
+    },
+    {
+      image: "/assets/image-2.png",
+      name: "The Heavyweight",
+      brand: "Heathered Brown",
+      price: "90",
+    },
+    {
+      image: "/assets/image-3.png",
+      name: "The Waffle Long-Sleeve Crew",
+      brand: "Bone",
+      price: "90",
+    },
+  ];
+  return (
+    <div className="w-11/12 mx-auto my-10 lg:my-32">
+      <div className="text-center">
+        <h1 className="font-inter text-xl lg:text-2xl font-normal lg:mb-2 text-black">
+          Everlane Favorites
+        </h1>
+        <p className="font-inter font-normal text-sm lg:text-base text-black">
+          Beautifully Functional. Purposefully Designed. Consciously Crafted.
+        </p>
+      </div>
+      <div className="scroll flex overflow-x-scroll snap-mandatory snap-x no-scrollbar gap-x-2 mt-4 lg:mt-8">
+        {favouriteItems.map((item, index) => (
+          <div
+            className="flex flex-col shrink-0 items-center justify-center gap-y-3"
+            key={index}
+          >
+            <Image src={item.image} alt="item-image" width={282} height={420} />
+            <div className="w-full flex justify-between">
+              <div className="flex flex-col gap-y-1">
+                <p className="text-xs font-normal font-inter text-[#262626]">{item.name}</p>
+                <span className="text-xs font-normal font-inter text-[#737373]">{item.brand}</span>
+              </div>
+              <div>
+                <p className="text-xs font-normal font-inter text-[#262626]">${item.price}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
