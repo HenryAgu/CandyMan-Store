@@ -15,9 +15,12 @@ const config: Config = {
       },
       colors:{
         "primary-ash": "#DDDBDC",
+        footer: "#F5F4F4",
+        primary: "#262626",
+        gray: "#737373",
       },
       fontFamily:{
-        "inter": ["Inter", "system-ui", "sans-serif"],
+        inter: ["Inter", "system-ui", "sans-serif"],
       }
     },
   },

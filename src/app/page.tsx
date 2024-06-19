@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/ui/Navbar/Navbar";
 import Link from "next/link";
 import { FC } from "react";
+import Footer from "./components/ui/Footer/Footer";
 
 interface CategoryItem {
   image: string;
@@ -35,7 +36,9 @@ const Home: FC = () => {
       <Category />
       <Favourite />
       <Testimonial />
+      <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"></div>
       <Fashion />
+      <Footer/>
     </main>
   );
 };
