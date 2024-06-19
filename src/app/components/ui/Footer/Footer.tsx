@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="bg-footer pt-16 pb-5 lg:px-[72px]">
       <div className="flex flex-col md:flex-col gap-y-10 md:gap-y-10 lg:flex-row justify-between w-11/12 mx-auto">
-        <div className="flex flex-col lg:flex-row gap-y-10 lg:gap-x-20">
+        <div className="flex flex-col md:flex-row lg:flex-row gap-y-10 md:gap-x-20 lg:gap-x-20">
           <div>
             <h3 className="text-primary text-base font-inter font-semibold">Account</h3>
             <div className="flex flex-col gap-y-2 mt-3">
