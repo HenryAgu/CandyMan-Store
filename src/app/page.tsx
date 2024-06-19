@@ -38,7 +38,7 @@ const Home: FC = () => {
       <Testimonial />
       <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"></div>
       <Fashion />
-      <Footer/>
+      <Footer />
     </main>
   );
 };
@@ -50,24 +50,26 @@ const Category: FC = () => {
       name: "Shirts",
     },
     {
-      image: "/assets/category2.png",
-      name: "denim",
-    },
-    {
       image: "/assets/category3.png",
       name: "tees",
-    },
-    {
-      image: "/assets/category4.png",
-      name: "pants",
     },
     {
       image: "/assets/category5.png",
       name: "sweaters",
     },
+
     {
       image: "/assets/category6.png",
       name: "outwear",
+    },
+    {
+      image: "/assets/category2.png",
+      name: "denim",
+    },
+
+    {
+      image: "/assets/category4.png",
+      name: "pants",
     },
   ];
 
