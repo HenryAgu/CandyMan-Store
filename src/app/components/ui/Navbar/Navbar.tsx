@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
   ];
 
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
-  
+
   const handleShowNavbar = () => {
     setShowNavbar(true);
   };
@@ -190,7 +190,7 @@ const Navbar: React.FC = () => {
                   Men
                 </Link>
                 <Link
-                  href=""
+                  href="/about"
                   className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
                   About
@@ -204,9 +204,11 @@ const Navbar: React.FC = () => {
               </nav>
             </div>
             <div className="ml-[-16vw]">
-              <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
-                CANDY MAN STORE
-              </h1>
+              <Link href="/">
+                <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
+                  CANDY MAN STORE
+                </h1>
+              </Link>
             </div>
             <div className="flex items-center gap-x-3">
               <button>
