@@ -105,9 +105,11 @@ const Navbar: React.FC = () => {
                 </button>
               </div>
               <div className="ml-[6vw]">
-                <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
-                  CANDY MAN STORE
-                </h1>
+                <Link href="/">
+                  <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
+                    CANDY MAN STORE
+                  </h1>
+                </Link>
               </div>
               <div className="flex items-center gap-x-3">
                 <button>
@@ -154,7 +156,7 @@ const Navbar: React.FC = () => {
                       Men
                     </Link>
                     <Link
-                      href=""
+                      href="/about"
                       className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
                     >
                       About
