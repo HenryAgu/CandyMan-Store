@@ -284,45 +284,92 @@ const Testimonial: FC = () => {
 
 const Fashion: FC = () => {
   return (
-    <div className="w-11/12 lg:w-[70%] mx-auto lg:my-10 lg:mb-20 flex flex-col lg:flex-row items-center gap-y-5 lg:gap-y-0 lg:gap-x-5">
-      <div>
-        <p className="text-center font-inter font-normal text-2xl mb-5">
-          Our Holiday Gift Picks
-        </p>
-        <Image
-          src="/assets/Gift.png"
-          alt=""
-          width={505}
-          height={626}
-          className="transition-grayscale duration-500 hover:grayscale"
-        />
-        <div className="flex flex-col justify-center items-center gap-y-2 mt-3">
-          <span className="font-normal font-inter text-center text-[#262626] text-sm">
-            The best presents for everyone on your list.
-          </span>
-          <Link href="" className="underline text-sm font-inter font-normal">
-            Read More
-          </Link>
+    <div>
+      <div className="w-11/12 lg:w-[70%] mx-auto lg:my-10 lg:mb-20 flex flex-col lg:flex-row items-center gap-y-5 lg:gap-y-0 lg:gap-x-5">
+        <div>
+          <p className="text-center font-inter font-normal text-2xl mb-5">
+            Our Holiday Gift Picks
+          </p>
+          <Image
+            src="/assets/Gift.png"
+            alt=""
+            width={505}
+            height={626}
+            className="transition-grayscale duration-500 hover:grayscale"
+          />
+          <div className="flex flex-col justify-center items-center gap-y-2 mt-3">
+            <span className="font-normal font-inter text-center text-[#262626] text-sm">
+              The best presents for everyone on your list.
+            </span>
+            <Link href="" className="underline text-sm font-inter font-normal">
+              Read More
+            </Link>
+          </div>
+        </div>
+        <div>
+          <p className="text-center font-inter font-normal text-2xl mb-5">
+            Cleaner Fashion
+          </p>
+          <Image
+            src="/assets/Fashion.png"
+            alt=""
+            width={505}
+            height={626}
+            className="transition-grayscale duration-500 hover:grayscale"
+          />
+          <div className="flex flex-col justify-center items-center gap-y-2 mt-3">
+            <span className="font-normal font-inter text-center text-[#262626] text-sm">
+              See the sustainability efforts behind each of our products.
+            </span>
+            <Link href="" className="underline text-sm font-inter font-normal">
+              Learn More
+            </Link>
+          </div>
         </div>
       </div>
-      <div>
-        <p className="text-center font-inter font-normal text-2xl mb-5">
-          Cleaner Fashion
-        </p>
-        <Image
-          src="/assets/Fashion.png"
-          alt=""
-          width={505}
-          height={626}
-          className="transition-grayscale duration-500 hover:grayscale"
-        />
-        <div className="flex flex-col justify-center items-center gap-y-2 mt-3">
-          <span className="font-normal font-inter text-center text-[#262626] text-sm">
-            See the sustainability efforts behind each of our products.
+      <div className="w-11/12 mx-auto my-10 lg:my-20 flex flex-col lg:flex-row items-center justify-center gap-y-10 lg:gap-x-20">
+        <div className="flex flex-col items-center justify-center">
+          <Image
+            src="/assets/everlane.png"
+            alt="everlane"
+            width={78}
+            height={78}
+            className="mb-5"
+          />
+          <p className="font-inter font-semibold text-sm">
+            Complimentary Shipping
+          </p>
+          <span className="font-normal font-inter text-sm mt-1">
+            Enjoy free shipping on U.S. orders over $100.
           </span>
-          <Link href="" className="underline text-sm font-inter font-normal">
-            Learn More
-          </Link>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <Image
+            src="/assets/everlane2.png"
+            alt="everlane"
+            width={78}
+            height={78}
+            className="mb-5"
+          />
+          <p className="font-inter font-semibold text-sm">
+            Consciously Crafted
+          </p>
+          <span className="font-normal font-inter text-sm mt-1">
+            Designed with you and the planet in mind.
+          </span>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <Image
+            src="/assets/everlane3.png"
+            alt="everlane"
+            width={78}
+            height={78}
+            className="mb-5"
+          />
+          <p className="font-inter font-semibold text-sm">Come Say Hi</p>
+          <span className="font-normal font-inter text-sm mt-1">
+            We have 11 stores across the U.S.
+          </span>
         </div>
       </div>
     </div>
