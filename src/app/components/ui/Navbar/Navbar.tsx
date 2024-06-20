@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
                       Women
                     </Link>
                     <Link
-                      href=""
+                      href="/men"
                       className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
                     >
                       Men
@@ -186,7 +186,7 @@ const Navbar: React.FC = () => {
                   Women
                 </Link>
                 <Link
-                  href=""
+                  href="/men"
                   className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
                   Men
