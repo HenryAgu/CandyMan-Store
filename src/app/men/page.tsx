@@ -3,16 +3,26 @@ import React, { useState } from "react";
 import Navbar from "../components/ui/Navbar/Navbar";
 import Footer from "../components/ui/Footer/Footer";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Image from "next/image";
+import Link from "next/link";
 
 interface size {
   value: string;
+}
+
+interface menClothes {
+  index: string;
+  image: string;
+  color: string;
+  brand: string;
+  price: string;
 }
 
 const page = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col gap-y-10 lg:flex-row lg:gap-x-5 w-11/12 mx-auto my-20">
+      <div className="flex flex-col justify-between gap-y-10 lg:flex-row w-11/12 mx-auto my-20">
         <SideBar />
         <MainBar />
       </div>
@@ -86,6 +96,7 @@ const SideBar = () => {
         <span className="font-inter font-normal text-xs text-black">
           249 Products
         </span>
+        <div className="h-px bg-[#DDDBDC] w-full"></div>
         <div className="flex flex-col gap-y-5">
           <h1 className="font-inter font-semibold text-sm mb-2">Size</h1>
           <div>
@@ -176,9 +187,106 @@ const SideBar = () => {
 };
 
 const MainBar = () => {
+  const menClothes: menClothes[] = [
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes2.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes3.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes4.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes5.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes6.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes7.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes8.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+    {
+      index: crypto.randomUUID(),
+      image: "/assets/men-clothes9.png",
+      color: "Black",
+      brand: "The Waffle Long-Sleeve Crew",
+      price: "132",
+    },
+  ];
   return (
-    <div className="basis-4/5 shrink-0 bg-red-700">
-      <h1>Main Bar</h1>
+    <div className="basis-4/5 shrink-0 w-full">
+      <span className="text-gray font-inter font-normal text-xs">
+        Home / Men
+      </span>
+      <h1 className="text-black font-inter font-normal text-[32px]">
+        Men’s Clothing & Apparel
+      </h1>
+      <p>Featured</p>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
+        {menClothes.map((item) => (
+          <Link href="">
+            <div key={item.index} className="w-full">
+              <img
+                src={item.image}
+                alt={item.brand}
+                className="h-auto w-full"
+              />
+              <div className="mt-3.5 flex justify-between">
+                <div className="flex flex-col gap-y-1.5">
+                  <h3 className="text-xs text-primary font-inter font-normal">
+                    {item.brand}
+                  </h3>
+                  <p className="text-xs text-gray font-inter font-normal">
+                    {item.color}
+                  </p>
+                </div>
+                <span className="text-xs font-semibold  font-inter text-primary">
+                  ${item.price}
+                </span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
