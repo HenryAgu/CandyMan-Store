@@ -252,6 +252,7 @@ const MainBar = () => {
       price: "132",
     },
   ];
+
   return (
     <div className="basis-4/5 shrink-0 w-full">
       <span className="text-gray font-inter font-normal text-xs">
@@ -263,8 +264,8 @@ const MainBar = () => {
       <p>Featured</p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
         {menClothes.map((item) => (
-          <Link href="" key={item.index}>
-            <div className="w-full">
+          <Link href={`/men/${item.index}`} key={item.index}>
+            <div className="w-full cursor-pointer">
               <img
                 src={item.image}
                 alt={item.brand}
