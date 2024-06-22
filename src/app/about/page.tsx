@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Navbar from "../components/ui/Navbar/Navbar";
-import Footer from "../components/ui/Footer/Footer";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 import Image from "next/image";
 
 const page: FC = () => {
@@ -83,7 +83,9 @@ const page: FC = () => {
         </div>
       </div>
       <div className="w-11/12 mx-auto mb-10 lg:mb-20 flex flex-col items-center justify-center">
-        <h1 className="font-normal font-inter text-xl lg:text-3xl">More to Explore</h1>
+        <h1 className="font-normal font-inter text-xl lg:text-3xl">
+          More to Explore
+        </h1>
         <div className="flex items-center justify-center text-center gap-x-5 mt-3 lg:mt-5">
           <div>
             <Image

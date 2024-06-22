@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import Navbar from "../components/ui/Navbar/Navbar";
-import Footer from "../components/ui/Footer/Footer";
+
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 interface size {
   value: string;
@@ -21,12 +22,12 @@ interface menClothes {
 const page = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <div className="flex flex-col justify-between gap-y-10 lg:flex-row w-11/12 mx-auto my-20">
         <SideBar />
         <MainBar />
       </div>
-      <Footer />
+      <Footer/>
     </div>
   );
 };

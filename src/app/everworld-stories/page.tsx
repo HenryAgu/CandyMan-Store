@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import Navbar from "../components/ui/Navbar/Navbar";
-import Footer from "../components/ui/Footer/Footer";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 interface theLatestInterface {
   image: string;
@@ -82,7 +82,9 @@ const page: FC = () => {
           </p>
         </div>
         <div className="my-32 mt-24 lg:mt-48 w-full mx-auto">
-          <h1 className="font-inter font-semibold text-5xl text-center lg:text-left">The Latest</h1>
+          <h1 className="font-inter font-semibold text-5xl text-center lg:text-left">
+            The Latest
+          </h1>
           <div className="grid lg:grid-cols-3 justify-center lg:justify-between gap-x-5 gap-y-10 lg:gap-y-20 mt-5">
             {theLatest.map((latestItem, index) => (
               <div key={index}>
@@ -104,7 +106,9 @@ const page: FC = () => {
           </div>
         </div>
         <div className="mb-32 mt-24 lg:mt-48 w-full mx-auto">
-          <h1 className="font-inter font-semibold text-5xl text-center lg:text-left">The Progress</h1>
+          <h1 className="font-inter font-semibold text-5xl text-center lg:text-left">
+            The Progress
+          </h1>
           <div className="grid lg:grid-cols-3 justify-center lg:justify-between gap-x-5 gap-y-10 lg:gap-y-20 mt-5">
             {theProgress.map((progressItem, index) => (
               <div key={index}>
@@ -125,8 +129,12 @@ const page: FC = () => {
       </div>
       <div className="bg-black">
         <div className="py-[90px] w-11/12 mx-auto flex flex-col gap-y-2 lg:gap-y-5">
-          <h1 className="font-inter font-semibold text-3xl lg:text-[54px] text-white">Follow us on social for more</h1>
-          <button className="bg-white text-black w-fit text-xs px-5 py-3 lg:text-sm font-inter font-semibold lg:py-5 lg:px-12 rounded-lg">@Everlane Instagram</button>
+          <h1 className="font-inter font-semibold text-3xl lg:text-[54px] text-white">
+            Follow us on social for more
+          </h1>
+          <button className="bg-white text-black w-fit text-xs px-5 py-3 lg:text-sm font-inter font-semibold lg:py-5 lg:px-12 rounded-lg">
+            @Everlane Instagram
+          </button>
         </div>
       </div>
       <Footer />

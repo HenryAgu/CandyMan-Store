@@ -1,8 +1,10 @@
 import Image from "next/image";
-import Navbar from "./components/ui/Navbar/Navbar";
+
 import Link from "next/link";
 import { FC } from "react";
-import Footer from "./components/ui/Footer/Footer";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
+
 
 interface CategoryItem {
   image: string;
@@ -19,7 +21,7 @@ interface FavouriteItem {
 const Home: FC = () => {
   return (
     <main className="overflow-x-hidden">
-      <Navbar />
+      <Navbar/>
       <div className="bg-[url('/assets/MobileShop.png')] bg-center bg-cover bg-no-repeat lg:bg-[url('/assets/Hero.png')] h-screen w-full">
         <div className="flex flex-col gap-y-3.5 text-white lg:p-40 lg:py-48 pt-60 w-[90%] mx-auto lg:mx-0 lg:w-fit text-center">
           <h3 className="font-normal font-inter text-5xl">Your Cozy Era</h3>
@@ -38,7 +40,7 @@ const Home: FC = () => {
       <Testimonial />
       <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"></div>
       <Fashion />
-      <Footer />
+      <Footer/>
     </main>
   );
 };
