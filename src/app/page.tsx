@@ -77,7 +77,7 @@ const Category: FC = () => {
   ];
 
   return (
-    <div className="w-full mx-auto my-10 lg:my-14">
+    <div className="w-full lg:w-11/12 mx-auto my-10 lg:my-14">
       <h1 className="text-center font-normal font-inter text-2xl">
         Shop by Category
       </h1>
@@ -224,7 +224,7 @@ const Favourite: FC = () => {
   ];
 
   return (
-    <div className="w-full mx-auto my-10 lg:my-32">
+    <div className="w-full w-full lg:w-11/12 mx-auto my-10 lg:my-32">
       <div className="text-center">
         <h1 className="font-inter text-xl lg:text-2xl font-normal lg:mb-2 text-black">
           Everlane Favorites
