@@ -5,7 +5,6 @@ import { FC } from "react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
-
 interface CategoryItem {
   image: string;
   name: string;
@@ -20,28 +19,30 @@ interface FavouriteItem {
 
 const Home: FC = () => {
   return (
-    <main className="overflow-x-hidden">
-      <Navbar/>
-      <div className="bg-[url('/assets/MobileShop.png')] bg-center bg-cover bg-no-repeat lg:bg-[url('/assets/Hero.png')] h-screen w-full">
-        <div className="flex flex-col gap-y-3.5 text-white lg:p-40 lg:py-48 pt-60 w-[90%] mx-auto lg:mx-0 lg:w-fit text-center">
-          <h3 className="font-normal font-inter text-5xl">Your Cozy Era</h3>
-          <p className="font-normal font-inter text-2xl">
-            Get peak comfy-chic <br /> with new winter essentials.
-          </p>
-          <Link href="">
-            <button className="uppercase font-inter w-[80%] mx-auto lg:mx-0 lg:w-full font-normal text-sm text-[#262626] bg-white py-3">
-              shop now
-            </button>
-          </Link>
+    <div className="mx-auto h-full px-0 w-full container">
+      <main className="">
+        <Navbar />
+        <div className="bg-[url('/assets/MobileShop.png')] bg-center bg-cover bg-no-repeat lg:bg-[url('/assets/Hero.png')] h-screen w-full">
+          <div className="flex flex-col gap-y-3.5 text-white lg:p-40 lg:py-48 pt-60 w-[90%] mx-auto lg:mx-0 lg:w-fit text-center">
+            <h3 className="font-normal font-inter text-5xl">Your Cozy Era</h3>
+            <p className="font-normal font-inter text-2xl">
+              Get peak comfy-chic <br /> with new winter essentials.
+            </p>
+            <Link href="">
+              <button className="uppercase font-inter w-[80%] mx-auto lg:mx-0 lg:w-full font-normal text-sm text-[#262626] bg-white py-3">
+                shop now
+              </button>
+            </Link>
+          </div>
         </div>
-      </div>
-      <Category />
-      <Favourite />
-      <Testimonial />
-      <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"></div>
-      <Fashion />
-      <Footer/>
-    </main>
+        <Category />
+        <Favourite />
+        <Testimonial />
+        <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"></div>
+        <Fashion />
+        <Footer />
+      </main>
+    </div>
   );
 };
 
@@ -76,7 +77,7 @@ const Category: FC = () => {
   ];
 
   return (
-    <div className="w-11/12 mx-auto my-10 lg:my-14">
+    <div className="w-full mx-auto my-10 lg:my-14">
       <h1 className="text-center font-normal font-inter text-2xl">
         Shop by Category
       </h1>
@@ -223,7 +224,7 @@ const Favourite: FC = () => {
   ];
 
   return (
-    <div className="w-11/12 mx-auto my-10 lg:my-32">
+    <div className="w-full mx-auto my-10 lg:my-32">
       <div className="text-center">
         <h1 className="font-inter text-xl lg:text-2xl font-normal lg:mb-2 text-black">
           Everlane Favorites

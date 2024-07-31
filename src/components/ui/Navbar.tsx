@@ -6,6 +6,17 @@ import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
 interface NavItem {
   path: string;
   name: string;
@@ -93,18 +104,120 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <section className="w-screen font-inter">
-      <Header />
-      <div className="block lg:hidden">
-        <div className="border-b border-[#DDDBDC]">
-          <div className="w-[95%] mx-auto my-0">
-            <div className="py-3 flex items-center justify-between">
-              <div>
-                <button onClick={handleShowNavbar}>
-                  <CiMenuFries className="text-[#262626] font-black text-xl" />
-                </button>
+    <Sheet>
+      <section className="w-full font-inter">
+        <Header />
+        <div className="block lg:hidden">
+          <div className="border-b border-[#DDDBDC]">
+            <div className="w-[95%] mx-auto my-0">
+              <div className="py-3 flex items-center justify-between">
+                <div>
+                  <button onClick={handleShowNavbar}>
+                    <CiMenuFries className="text-[#262626] font-black text-xl" />
+                  </button>
+                </div>
+                <div className="ml-[6vw]">
+                  <Link href="/">
+                    <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
+                      CANDY MAN STORE
+                    </h1>
+                  </Link>
+                </div>
+                <div className="flex items-center gap-x-3">
+                  <button>
+                    <Image
+                      src="/assets/MagnifyingGlass.svg"
+                      alt="search"
+                      width={16}
+                      height={16}
+                    />
+                  </button>
+                  <button>
+                    <Image
+                      src="/assets/User.svg"
+                      alt="user"
+                      width={16}
+                      height={16}
+                    />
+                  </button>
+                  <button>
+                    <Image
+                      src="/assets/ShoppingCartSimple.svg"
+                      alt="cart"
+                      width={16}
+                      height={16}
+                    />
+                  </button>
+                </div>
+                {showNavbar && (
+                  <div className="absolute md:top-[7vh] top-[10vh] bg-white w-[95%] shadow-md">
+                    <nav className="h-fit flex flex-col p-3 gap-y-5 text-[#262626]">
+                      <button onClick={handleCloseNavbar}>
+                        <AiOutlineClose className="text-[#262626] font-black text-xl" />
+                      </button>
+                      <Link
+                        href=""
+                        className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                      >
+                        Women
+                      </Link>
+                      <Link
+                        href="/men"
+                        className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                      >
+                        Men
+                      </Link>
+                      <Link
+                        href="/about"
+                        className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                      >
+                        About
+                      </Link>
+                      <Link
+                        href="/everworld-stories"
+                        className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
+                      >
+                        Everworld Stories
+                      </Link>
+                    </nav>
+                  </div>
+                )}
               </div>
-              <div className="ml-[6vw]">
+            </div>
+          </div>
+        </div>
+        <div className="hidden lg:block">
+          <div className="border-b border-transparent">
+            <div className="w-11/12 mx-auto my-0 flex items-center h-[10vh] justify-between">
+              <div className="h-[10vh]">
+                <nav className="h-full flex items-center gap-x-5 text-[#262626]">
+                  <Link
+                    href=""
+                    className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-transparent hover:border-[#262626]"
+                  >
+                    Women
+                  </Link>
+                  <Link
+                    href="/men"
+                    className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-transparent hover:border-[#262626]"
+                  >
+                    Men
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-transparent hover:border-[#262626]"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href="/everworld-stories"
+                    className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-transparent hover:border-[#262626]"
+                  >
+                    Everworld Stories
+                  </Link>
+                </nav>
+              </div>
+              <div className="ml-[-16vw]">
                 <Link href="/">
                   <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
                     CANDY MAN STORE
@@ -128,133 +241,38 @@ const Navbar: React.FC = () => {
                     height={16}
                   />
                 </button>
-                <button>
-                  <Image
-                    src="/assets/ShoppingCartSimple.svg"
-                    alt="cart"
-                    width={16}
-                    height={16}
-                  />
-                </button>
+                <SheetTrigger asChild>
+                  <button>
+                    <Image
+                      src="/assets/ShoppingCartSimple.svg"
+                      alt="cart"
+                      width={16}
+                      height={16}
+                    />
+                  </button>
+                </SheetTrigger>
+                <SheetContent>
+                  <div>cart sheet o</div>
+                </SheetContent>
               </div>
-              {showNavbar && (
-                <div className="absolute md:top-[7vh] top-[10vh] bg-white w-[95%] shadow-md">
-                  <nav className="h-fit flex flex-col p-3 gap-y-5 text-[#262626]">
-                    <button onClick={handleCloseNavbar}>
-                      <AiOutlineClose className="text-[#262626] font-black text-xl" />
-                    </button>
-                    <Link
-                      href=""
-                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
-                    >
-                      Women
-                    </Link>
-                    <Link
-                      href="/men"
-                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
-                    >
-                      Men
-                    </Link>
-                    <Link
-                      href="/about"
-                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
-                    >
-                      About
-                    </Link>
-                    <Link
-                      href="/everworld-stories"
-                      className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
-                    >
-                      Everworld Stories
-                    </Link>
-                  </nav>
-                </div>
-              )}
             </div>
           </div>
-        </div>
-      </div>
-      <div className="hidden lg:block">
-        <div className="border-b border-[#DDDBDC]">
-          <div className="w-11/12 mx-auto my-0 flex items-center h-[10vh] justify-between">
-            <div className="h-[10vh]">
-              <nav className="h-full flex items-center gap-x-5 text-[#262626]">
+          <div className="flex items-center justify-center border-b border-[#DDDBDC] h-[10vh]">
+            <nav className="h-full flex items-center gap-x-5 text-[#262626] ml-[-2vw]">
+              {miniNavbar.map((nav, index) => (
                 <Link
-                  href=""
+                  href={nav.path}
+                  key={index}
                   className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
                 >
-                  Women
+                  {nav.name}
                 </Link>
-                <Link
-                  href="/men"
-                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-                >
-                  Men
-                </Link>
-                <Link
-                  href="/about"
-                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-                >
-                  About
-                </Link>
-                <Link
-                  href="/everworld-stories"
-                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-                >
-                  Everworld Stories
-                </Link>
-              </nav>
-            </div>
-            <div className="ml-[-16vw]">
-              <Link href="/">
-                <h1 className="font-bold font-inter text-sm tracking-wider text-[#262626]">
-                  CANDY MAN STORE
-                </h1>
-              </Link>
-            </div>
-            <div className="flex items-center gap-x-3">
-              <button>
-                <Image
-                  src="/assets/MagnifyingGlass.svg"
-                  alt="search"
-                  width={16}
-                  height={16}
-                />
-              </button>
-              <button>
-                <Image
-                  src="/assets/User.svg"
-                  alt="user"
-                  width={16}
-                  height={16}
-                />
-              </button>
-              <button>
-                <Image
-                  src="/assets/ShoppingCartSimple.svg"
-                  alt="cart"
-                  width={16}
-                  height={16}
-                />
-              </button>
-            </div>
+              ))}
+            </nav>
           </div>
         </div>
-        <div className="flex items-center justify-center border-b border-[#DDDBDC] h-[10vh]">
-          <nav className="h-full flex items-center gap-x-5 text-[#262626] ml-[-2vw]">
-            {miniNavbar.map((nav, index) => (
-              <Link
-                href={nav.path}
-                key={index}
-                className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-              >
-                {nav.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </div>
-    </section>
+      </section>
+    </Sheet>
   );
 };
 
