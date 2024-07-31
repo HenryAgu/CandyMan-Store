@@ -187,7 +187,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div className="hidden lg:block">
-          <div className="border-b border-transparent">
+          <div className="border-b border-[#DDDBDC]">
             <div className="w-11/12 mx-auto my-0 flex items-center h-[10vh] justify-between">
               <div className="h-[10vh]">
                 <nav className="h-full flex items-center gap-x-5 text-[#262626]">
