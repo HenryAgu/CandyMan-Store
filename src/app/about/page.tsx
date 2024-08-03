@@ -29,7 +29,7 @@ const page: FC = () => {
       </div>
       <div className="w-full h-fit flex flex-col md:flex-row lg:flex-row">
         <div className="w-full lg:w-2/4 mx-auto lg:h-auto md:h-[40vh]">
-          <img src="/assets/about.png" alt="image" className="w-full h-full" />
+          <Image src="/assets/about.png" alt="image" width={700} height={733} className="w-full aspect-[700/733]" />
         </div>
         <div className="bg-[#e6ded8] w-full lg:w-2/4 mx-auto flex flex-col md:p-8 p-10 lg:p-20 items-start justify-center h-[350px] lg:h-auto md:h-[40vh]">
           <span className="font-normal font-inter text-xs">OUR FACTORIES</span>
@@ -61,13 +61,13 @@ const page: FC = () => {
           </p>
         </div>
         <div className="w-full lg:w-2/4 mx-auto lg:h-auto md:h-[40vh]">
-          <img src="/assets/about2.png" alt="image" className="w-full h-full" />
+          <Image src="/assets/about2.png" alt="image" width={700} height={552} className="w-full aspect-[700/552]" />
         </div>
       </div>
       <div className="bg-[url('/assets/about3.png')] bg-center bg-cover bg-no-repeat h-[500px] lg:h-screen w-full"></div>
       <div className="w-full h-fit flex flex-col md:flex-row lg:flex-row mb-5 lg:mb-10">
         <div className="w-full lg:w-2/4 mx-auto lg:h-auto md:h-[40vh]">
-          <img src="/assets/prices.png" alt="image" className="w-full h-full" />
+          <Image src="/assets/prices.png" alt="image" width={700} height={660} className="w-full aspect-[700/660]" />
         </div>
         <div className="bg-white w-full lg:w-2/4 mx-auto flex flex-col md:p-8 p-10 lg:p-20 items-start justify-center h-[350px] lg:h-auto md:h-[40vh]">
           <span className="font-normal font-inter text-xs">OUR PRICES</span>

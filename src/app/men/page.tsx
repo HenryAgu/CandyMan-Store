@@ -6,18 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import { useQuery } from "@tanstack/react-query";
 
 interface size {
   value: string;
 }
 
-interface menClothes {
-  index: string;
-  image: string;
-  color: string;
-  brand: string;
-  price: string;
-}
 
 const page = () => {
   return (
@@ -188,6 +182,15 @@ const SideBar = () => {
 };
 
 const MainBar = () => {
+  const {data, isPending, error} = useQuery({
+    queryKey: ['menData'],
+    queryFn: () => fetch("https://api.escuelajs.co/api/v1/products").then((res)=> res.json(),),
+  })
+
+  console.log(data);
+  // if (isPending) return 'Loading...'
+
+  // if (error) return 'An error has occurred: ' + error.message
   const menClothes: menClothes[] = [
     {
       index: crypto.randomUUID(),
@@ -267,10 +270,12 @@ const MainBar = () => {
         {menClothes.map((item) => (
           <Link href={`/men/${item.index}`} key={item.index}>
             <div className="w-full cursor-pointer">
-              <img
+              <Image
                 src={item.image}
                 alt={item.brand}
-                className="h-auto w-full"
+                width={330}
+                height={392}
+                className="w-full aspect-[330/392]"
               />
               <div className="mt-3.5 flex justify-between">
                 <div className="flex flex-col gap-y-1.5">

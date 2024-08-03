@@ -1,15 +1,12 @@
-import React from 'react';
-import Home from './home/page';
-import QueryClientProviderWrapper from '@/components/QueryClientProviderWrapper';
+import React from "react";
+import Home from "./home/page";
 
 const Page = () => {
   return (
-    <QueryClientProviderWrapper>
-      <div>
-        <Home />
-      </div>
-    </QueryClientProviderWrapper>
+    <div>
+      <Home />
+    </div>
   );
-}
+};
 
 export default Page;

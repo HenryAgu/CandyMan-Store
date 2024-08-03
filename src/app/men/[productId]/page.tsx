@@ -1,5 +1,6 @@
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
+import Image from "next/image";
 import React from "react";
 
 interface ProductDetailImage {
@@ -52,7 +53,7 @@ const ProductDetailsSidebar = ({ params }: any) => {
       <div className="hidden w-full lg:grid grid-cols-2 gap-2">
         {productDetailImage.map((detail) => (
           <div key={detail.id}>
-            <img src={detail.image} alt="image" className="h-auto w-full" />
+            <Image src={detail.image} width={412} height={508} alt="image" className="w-full aspect-[412/508]" />
           </div>
         ))}
       </div>
@@ -62,7 +63,7 @@ const ProductDetailsSidebar = ({ params }: any) => {
             key={detail.id}
             className="flex flex-col shrink-0 items-center justify-center gap-y-3"
           >
-            <img src={detail.image} alt="image" className="h-auto w-[234px]" />
+            <Image src={detail.image} width={234} height={330} alt="image" className="w-full aspect-[234/330]" />
           </div>
         ))}
       </div>

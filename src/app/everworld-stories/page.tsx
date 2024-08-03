@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import Image from "next/image";
 
 interface theLatestInterface {
   image: string;
@@ -88,10 +89,12 @@ const page: FC = () => {
           <div className="grid lg:grid-cols-3 justify-center lg:justify-between gap-x-5 gap-y-10 lg:gap-y-20 mt-5">
             {theLatest.map((latestItem, index) => (
               <div key={index}>
-                <img
+                <Image
                   src={latestItem.image}
+                  width={411}
+                  height={413}
                   alt="image"
-                  className="w-full grayscale transition-grayscale duration-300 hover:grayscale-0"
+                  className="w-full grayscale transition-grayscale duration-300 hover:grayscale-0 aspect-[411/413]"
                 />
                 <div className="mt-5 flex flex-col gap-y-2">
                   <h3 className="font-inter font-normal text-3xl text-black">
@@ -112,10 +115,12 @@ const page: FC = () => {
           <div className="grid lg:grid-cols-3 justify-center lg:justify-between gap-x-5 gap-y-10 lg:gap-y-20 mt-5">
             {theProgress.map((progressItem, index) => (
               <div key={index}>
-                <img
+                <Image
                   src={progressItem.image}
                   alt="image"
-                  className="w-full grayscale transition-grayscale duration-300 hover:grayscale-0"
+                  width={411}
+                  height={413}
+                  className="w-full grayscale transition-grayscale duration-300 hover:grayscale-0 aspect-[411/413]"
                 />
                 <div className="mt-3 flex flex-col gap-y-2">
                   <h3 className="font-inter font-normal text-3xl text-black">
