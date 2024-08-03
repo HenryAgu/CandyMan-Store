@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: "Discover a delightful variety of candies and sweets at CandyMan Store. Shop our extensive collection of chocolates, gummies, lollipops, and more. Perfect for all your sweet cravings and special occasions. Fast shipping and excellent customer service guaranteed.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
