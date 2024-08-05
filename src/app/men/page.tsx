@@ -66,7 +66,9 @@ const SideBar: React.FC = () => {
   return (
     <div>
       <div className="hidden lg:flex flex-col gap-y-5 basis-1/5 shrink-0">
-        <span className="font-inter font-normal text-xs text-black">249 Products</span>
+        <span className="font-inter font-normal text-xs text-black">
+          249 Products
+        </span>
         <div className="h-px bg-[#DDDBDC] w-full"></div>
         <div className="flex flex-col gap-y-5">
           <h1 className="font-inter font-semibold text-sm mb-2">Size</h1>
@@ -84,7 +86,9 @@ const SideBar: React.FC = () => {
             </div>
           </div>
           <div>
-            <p className="font-inter font-normal text-xs text-black">Clothing</p>
+            <p className="font-inter font-normal text-xs text-black">
+              Clothing
+            </p>
             <div className="mt-2 grid grid-cols-4 gap-1">
               {ClothesSizes.map((clotheSize, index) => (
                 <button
@@ -99,10 +103,14 @@ const SideBar: React.FC = () => {
         </div>
       </div>
       <div className="flex lg:hidden flex-col gap-y-5 basis-1/5 shrink-0">
-        <span className="font-inter font-normal text-xs text-black">249 Products</span>
+        <span className="font-inter font-normal text-xs text-black">
+          249 Products
+        </span>
         <div className="flex flex-col gap-y-5">
           <div className="flex items-center justify-between">
-            <h1 className="font-inter font-semibold text-sm mb-2 text-black">Size</h1>
+            <h1 className="font-inter font-semibold text-sm mb-2 text-black">
+              Size
+            </h1>
             <button onClick={handleShowSize}>
               {showSize ? (
                 <IoIosArrowDown className="font-inter font-semibold text-sm mb-2 text-black" />
@@ -114,7 +122,9 @@ const SideBar: React.FC = () => {
           {showSize && (
             <div className="flex flex-col gap-y-10">
               <div>
-                <p className="font-inter font-normal text-xs text-black">Waist</p>
+                <p className="font-inter font-normal text-xs text-black">
+                  Waist
+                </p>
                 <div className="mt-2 grid grid-cols-4 gap-1">
                   {waistSizes.map((waistSize, index) => (
                     <button
@@ -127,7 +137,9 @@ const SideBar: React.FC = () => {
                 </div>
               </div>
               <div>
-                <p className="font-inter font-normal text-xs text-black">Clothing</p>
+                <p className="font-inter font-normal text-xs text-black">
+                  Clothing
+                </p>
                 <div className="mt-2 grid grid-cols-4 gap-1">
                   {ClothesSizes.map((clotheSize, index) => (
                     <button
@@ -172,30 +184,41 @@ const MainBar: React.FC = () => {
 
   return (
     <div className="basis-4/5 shrink-0 w-full">
-      <span className="text-gray font-inter font-normal text-xs">Home / Men</span>
-      <h1 className="text-black font-inter font-normal text-[32px]">Men’s Clothing & Apparel</h1>
+      <span className="text-gray font-inter font-normal text-xs">
+        Home / Men
+      </span>
+      <h1 className="text-black font-inter font-normal text-[32px]">
+        Men’s Clothing & Apparel
+      </h1>
       <p>Featured</p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
         {displayedProducts.length > 0 ? (
           displayedProducts.map((item) => (
             <Link href={`/men/${item.id}`} key={item.id}>
               <div className="w-full cursor-pointer">
-                {item.images[0] ? (
+                <div className="w-full aspect-[330/392] bg-gray-200">
                   <img
-                    src={item.images[0] || "assets/image.png"}
+                    src={item.images[0] || "/assets/image.png"}
                     alt={item.title}
-                    className="w-full aspect-[330/392]"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
                   />
-                ) : (
-                  <div className="w-full aspect-[330/392] bg-gray-600" />
-                )}
+                </div>
 
                 <div className="mt-3.5 flex justify-between">
                   <div className="flex flex-col gap-y-1.5">
-                    <h3 className="text-xs text-primary font-inter font-normal">{item.title}</h3>
-                    <p className="text-xs text-gray font-inter font-normal">{item.category.name}</p>
+                    <h3 className="text-xs text-primary font-inter font-normal">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-gray font-inter font-normal">
+                      {item.category.name}
+                    </p>
                   </div>
-                  <span className="text-xs font-semibold font-inter text-primary">${item.price}</span>
+                  <span className="text-xs font-semibold font-inter text-primary">
+                    ${item.price}
+                  </span>
                 </div>
               </div>
             </Link>
