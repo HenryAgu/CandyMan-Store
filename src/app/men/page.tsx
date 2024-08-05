@@ -15,10 +15,10 @@ interface Size {
 
 interface Product {
   id: number;
-  images: string[];
+  image: string;
   title: string;
-  category: { name: string };
-  price: number;
+  category: string;
+  price: string;
 }
 
 const Page: React.FC = () => {
@@ -163,7 +163,7 @@ const MainBar: React.FC = () => {
   const { data, isLoading, error } = useQuery<Product[]>({
     queryKey: ["menData"],
     queryFn: () =>
-      fetch("https://api.escuelajs.co/api/v1/products").then((res) =>
+      fetch("https://fakestoreapi.com/products/category/men's clothing").then((res) =>
         res.json()
       ),
   });
@@ -179,6 +179,7 @@ const MainBar: React.FC = () => {
       </div>
     );
 
+    console.log(data)
   if (error) return "An error has occurred: " + (error as Error).message;
   const displayedProducts = data ? data.slice(0, 27) : [];
 
@@ -188,9 +189,8 @@ const MainBar: React.FC = () => {
         Home / Men
       </span>
       <h1 className="text-black font-inter font-normal text-[32px]">
-        Men’s Clothing & Apparel
+        Men’s Clothing
       </h1>
-      <p>Featured</p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
         {displayedProducts.length > 0 ? (
           displayedProducts.map((item) => (
@@ -198,9 +198,9 @@ const MainBar: React.FC = () => {
               <div className="w-full cursor-pointer">
                 <div className="w-full aspect-[330/392] bg-gray-200">
                   <img
-                    src={item.images[0] || "/assets/image.png"}
+                    src={item.image || "/assets/image.png"}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover border border-gray-200"
                     onError={(e) => {
                       e.currentTarget.style.display = "none";
                     }}
@@ -213,7 +213,7 @@ const MainBar: React.FC = () => {
                       {item.title}
                     </h3>
                     <p className="text-xs text-gray font-inter font-normal">
-                      {item.category.name}
+                      {item.category}
                     </p>
                   </div>
                   <span className="text-xs font-semibold font-inter text-primary">
