@@ -21,20 +21,46 @@ interface Product {
   price: string;
 }
 
+interface ProductProps {
+  productData: Product[];
+}
+
 const Page: React.FC = () => {
+  const { data, isLoading, error } = useQuery<Product[]>({
+    queryKey: ["menData"],
+    queryFn: () =>
+      fetch("https://fakestoreapi.com/products/category/men's clothing").then(
+        (res) => res.json()
+      ),
+  });
+
+  if (isLoading)
+    return (
+      <div className="basis-4/5 shrink-0 w-full">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
+          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
+          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
+          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
+        </div>
+      </div>
+    );
+
+  console.log(data);
+  if (error) return "An error has occurred: " + (error as Error).message;
+
   return (
     <div>
       <Navbar />
       <div className="flex flex-col justify-between gap-y-10 lg:flex-row w-11/12 mx-auto my-20">
-        <SideBar />
-        <MainBar />
+        <SideBar productData={data ?? []}/>
+        <MainBar productData={data ?? []}/>
       </div>
       <Footer />
     </div>
   );
 };
 
-const SideBar: React.FC = () => {
+const SideBar: React.FC<ProductProps> = ({productData}) => {
   const waistSizes: Size[] = [
     { value: "36" },
     { value: "36" },
@@ -67,7 +93,7 @@ const SideBar: React.FC = () => {
     <div>
       <div className="hidden lg:flex flex-col gap-y-5 basis-1/5 shrink-0">
         <span className="font-inter font-normal text-xs text-black">
-          249 Products
+          {productData.length} Products
         </span>
         <div className="h-px bg-[#DDDBDC] w-full"></div>
         <div className="flex flex-col gap-y-5">
@@ -104,7 +130,7 @@ const SideBar: React.FC = () => {
       </div>
       <div className="flex lg:hidden flex-col gap-y-5 basis-1/5 shrink-0">
         <span className="font-inter font-normal text-xs text-black">
-          249 Products
+          {productData.length} Products
         </span>
         <div className="flex flex-col gap-y-5">
           <div className="flex items-center justify-between">
@@ -159,30 +185,8 @@ const SideBar: React.FC = () => {
   );
 };
 
-const MainBar: React.FC = () => {
-  const { data, isLoading, error } = useQuery<Product[]>({
-    queryKey: ["menData"],
-    queryFn: () =>
-      fetch("https://fakestoreapi.com/products/category/men's clothing").then((res) =>
-        res.json()
-      ),
-  });
-
-  if (isLoading)
-    return (
-      <div className="basis-4/5 shrink-0 w-full">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
-          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
-          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
-          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
-        </div>
-      </div>
-    );
-
-    console.log(data)
-  if (error) return "An error has occurred: " + (error as Error).message;
-  const displayedProducts = data ? data.slice(0, 27) : [];
-
+const MainBar: React.FC<ProductProps> = ({productData}) => {
+  const displayedProducts = productData ? productData.slice(0, 27) : [];
   return (
     <div className="basis-4/5 shrink-0 w-full">
       <span className="text-gray font-inter font-normal text-xs">

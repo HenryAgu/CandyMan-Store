@@ -1,5 +1,8 @@
+"use client"
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import React from "react";
 
@@ -8,7 +11,29 @@ interface ProductDetailImage {
   image: string;
 }
 
+interface Product {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+}
+
 const page = ({ params }: any) => {
+  const productId = params.productId
+  const { data, isLoading, error } = useQuery<Product>({
+    queryKey: ["singeMenData"],
+    queryFn: () =>
+      fetch(`https://fakestoreapi.com/products/${productId}`).then((res) =>
+        res.json()
+      ),
+  });
+  if (isLoading) return <h1>loading...</h1>;
+
+  console.log(data);
+  console.log(params)
+  if (error) return "An error has occurred: " + (error as Error).message;
   return (
     <div>
       <Navbar />
