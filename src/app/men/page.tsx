@@ -23,6 +23,8 @@ interface Product {
 
 interface ProductProps {
   productData: Product[];
+  isLoading?: boolean;
+  error?: unknown;
 }
 
 const Page: React.FC = () => {
@@ -34,26 +36,14 @@ const Page: React.FC = () => {
       ),
   });
 
-  if (isLoading)
-    return (
-      <div className="basis-4/5 shrink-0 w-full">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
-          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
-          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
-          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
-        </div>
-      </div>
-    );
 
-  console.log(data);
-  if (error) return "An error has occurred: " + (error as Error).message;
 
   return (
     <div>
       <Navbar />
       <div className="flex flex-col justify-between gap-y-10 lg:flex-row w-11/12 mx-auto my-20">
         <SideBar productData={data ?? []}/>
-        <MainBar productData={data ?? []}/>
+        <MainBar productData={data ?? []} isLoading={isLoading} error={error}/>
       </div>
       <Footer />
     </div>
@@ -185,7 +175,18 @@ const SideBar: React.FC<ProductProps> = ({productData}) => {
   );
 };
 
-const MainBar: React.FC<ProductProps> = ({productData}) => {
+const MainBar = ({productData,isLoading,error}:ProductProps) => {
+  if (isLoading)
+    return (
+      <div className="basis-4/5 shrink-0 w-full">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
+          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
+          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
+          <Skeleton className="w-full h-[500px] aspect-[330/392]" />
+        </div>
+      </div>
+    );
+  if (error) return "An error has occurred: " + (error as Error).message;
   const displayedProducts = productData ? productData.slice(0, 27) : [];
   return (
     <div className="basis-4/5 shrink-0 w-full">
