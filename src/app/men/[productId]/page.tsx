@@ -20,7 +20,7 @@ interface Product {
   image: string;
 }
 
-const page = ({ params }: any) => {
+const MenProductPage = ({ params }: any) => {
   const productId = params.productId
   const { data, isLoading, error } = useQuery<Product>({
     queryKey: ["singeMenData"],
@@ -189,4 +189,4 @@ const ProductDetailMainbar = () => {
   );
 };
 
-export default page;
+export default MenProductPage;

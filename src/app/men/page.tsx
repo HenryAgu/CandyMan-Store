@@ -7,6 +7,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
 // Define interfaces for the expected data
 interface Size {
@@ -27,7 +28,7 @@ interface ProductProps {
   error?: unknown;
 }
 
-const Page: React.FC = () => {
+const MenProductsPage: React.FC = () => {
   const { data, isLoading, error } = useQuery<Product[]>({
     queryKey: ["menData"],
     queryFn: () =>
@@ -36,21 +37,19 @@ const Page: React.FC = () => {
       ),
   });
 
-
-
   return (
     <div>
       <Navbar />
       <div className="flex flex-col justify-between gap-y-10 lg:flex-row w-11/12 mx-auto my-20">
-        <SideBar productData={data ?? []}/>
-        <MainBar productData={data ?? []} isLoading={isLoading} error={error}/>
+        <SideBar productData={data ?? []} />
+        <MainBar productData={data ?? []} isLoading={isLoading} error={error} />
       </div>
       <Footer />
     </div>
   );
 };
 
-const SideBar: React.FC<ProductProps> = ({productData}) => {
+const SideBar: React.FC<ProductProps> = ({ productData }) => {
   const waistSizes: Size[] = [
     { value: "36" },
     { value: "36" },
@@ -175,7 +174,7 @@ const SideBar: React.FC<ProductProps> = ({productData}) => {
   );
 };
 
-const MainBar = ({productData,isLoading,error}:ProductProps) => {
+const MainBar = ({ productData, isLoading, error }: ProductProps) => {
   if (isLoading)
     return (
       <div className="basis-4/5 shrink-0 w-full">
@@ -236,4 +235,4 @@ const MainBar = ({productData,isLoading,error}:ProductProps) => {
   );
 };
 
-export default Page;
+export default MenProductsPage;
