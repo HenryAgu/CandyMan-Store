@@ -108,7 +108,7 @@ const ProductDetailMainbar = ({
         <span className="font-inter font-normal text-xs text-gray">
           <Link href="/men">Men</Link> / {productData.category}
         </span>
-        <div className="flex justify-between">
+        <div className="flex gap-x-4 justify-between">
           <h1 className="font-inter font-normal text-2xl text-black max-w-[260px]">
             {productData.title}
           </h1>
