@@ -7,7 +7,6 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
-import Image from "next/image";
 
 // Define interfaces for the expected data
 interface Size {

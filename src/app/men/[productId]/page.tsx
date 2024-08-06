@@ -1,14 +1,15 @@
-"use client"
+"use client";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-interface ProductDetailImage {
-  id: string;
-  image: string;
+interface rating {
+  rate: number;
+  count: number;
 }
 
 interface Product {
@@ -18,10 +19,17 @@ interface Product {
   category: string;
   description: string;
   image: string;
+  rating: rating;
+}
+
+interface ProductProps {
+  productData?: Product;
+  isLoading?: boolean;
+  error?: unknown;
 }
 
 const MenProductPage = ({ params }: any) => {
-  const productId = params.productId
+  const productId = params.productId;
   const { data, isLoading, error } = useQuery<Product>({
     queryKey: ["singeMenData"],
     queryFn: () =>
@@ -29,97 +37,85 @@ const MenProductPage = ({ params }: any) => {
         res.json()
       ),
   });
-  if (isLoading) return <h1>loading...</h1>;
-
-  console.log(data);
-  console.log(params)
-  if (error) return "An error has occurred: " + (error as Error).message;
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col gap-y-10 lg:flex-row lg:gap-x-6 w-11/12 mx-auto lg:my-20">
-        <ProductDetailsSidebar params={params} />
-        <ProductDetailMainbar />
+      <div className="flex flex-col-reverse gap-y-10 lg:flex-row lg:gap-x-6 w-11/12 mx-auto lg:my-20">
+        <ProductDetailsSidebar
+          productData={data}
+          isLoading={isLoading}
+          error={error}
+        />
+        <ProductDetailMainbar
+          productData={data}
+          isLoading={isLoading}
+          error={error}
+        />
       </div>
       <Footer />
     </div>
   );
 };
 
-const ProductDetailsSidebar = ({ params }: any) => {
-  const productDetailImage: ProductDetailImage[] = [
-    {
-      id: crypto.randomUUID(),
-      image: "/assets/productDetail1.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      image: "/assets/productDetail2.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      image: "/assets/productDetail3.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      image: "/assets/productDetail4.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      image: "/assets/productDetail5.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      image: "/assets/productDetail6.png",
-    },
-  ];
+const ProductDetailsSidebar = ({
+  productData,
+  isLoading,
+  error,
+}: ProductProps) => {
+  if (isLoading)
+    return (
+      <div className=" basis-[70%] shrink-0">
+        <Skeleton className="w-11/12 h-screen lg:grid grid-cols-1 gap-2" />
+      </div>
+    );
+  if (error)
+    return <div>An error has occurred: {(error as Error).message}</div>;
+  if (!productData) return <div>No product data found</div>;
   return (
     <div className=" basis-[70%] shrink-0">
-      <div className="hidden w-full lg:grid grid-cols-2 gap-2">
-        {productDetailImage.map((detail) => (
-          <div key={detail.id}>
-            <Image
-              src={detail.image}
-              width={412}
-              height={508}
-              alt="image"
-              className="w-full aspect-[412/508]"
-            />
-          </div>
-        ))}
-      </div>
-      <div className="flex lg:hidden w-full scroll overflow-x-scroll snap-mandatory snap-x no-scrollbar gap-x-2 mt-5">
-        {productDetailImage.map((detail) => (
-          <div
-            key={detail.id}
-            className="flex flex-col shrink-0 items-center justify-center gap-y-3"
-          >
-            <Image
-              src={detail.image}
-              width={234}
-              height={330}
-              alt="image"
-              className="w-full aspect-[234/330]"
-            />
-          </div>
-        ))}
+      <div className="w-full lg:w-11/12 lg:grid grid-cols-1 gap-2">
+        <div className="w-full aspect-[280/220] bg-gray-200">
+          <img
+            src={productData.image || "/assets/image.png"}
+            alt={productData.title}
+            className="w-full aspect-[280/320] object-cover border border-gray-200"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-const ProductDetailMainbar = () => {
+const ProductDetailMainbar = ({
+  productData,
+  isLoading,
+  error,
+}: ProductProps) => {
+  if (isLoading)
+    return (
+      <div className="basis-[30%]">
+        <Skeleton className="w-full h-full" />
+      </div>
+    );
+  if (error)
+    return <div>An error has occurred: {(error as Error).message}</div>;
+  if (!productData) return <div>No product data found</div>;
   return (
-    <div className="flex flex-col gap-y-5 basis-[30%] h-fit shrink-0">
+    <div className="flex flex-col gap-y-5 basis-[30%] h-fit shrink-0  mt-5 lg:mt-0">
       <div>
         <span className="font-inter font-normal text-xs text-gray">
-          Men / Outerwear - Jackets & Coats
+          <Link href="/men">Men</Link> / {productData.category}
         </span>
         <div className="flex justify-between">
-          <h1 className="font-inter font-normal text-2xl text-black">
-            The ReWool® <br /> Oversized Shirt Jacket
+          <h1 className="font-inter font-normal text-2xl text-black max-w-[260px]">
+            {productData.title}
           </h1>
-          <h4 className="font-inter font-normal text-2xl text-black">$167</h4>
+          <h4 className="font-inter font-normal text-2xl text-black">
+            ${productData.price}
+          </h4>
         </div>
         <div className="flex items-center gap-x-2 mt-2">
           <svg
@@ -135,7 +131,7 @@ const ProductDetailMainbar = () => {
             />
           </svg>
           <span className="text-neutral-500 font-inter text-xs font-normal">
-            5.0 (2 Reviews)
+            {`${productData.rating.rate} (${productData.rating.count} Reviews)`}
           </span>
         </div>
       </div>
@@ -162,26 +158,14 @@ const ProductDetailMainbar = () => {
           </button>
         </div>
         <button className="w-full bg-primary text-white mt-10 py-3 font-inter font-normal text-sm">
-          ADD TO BAG
+          ADD TO CART
         </button>
       </div>
       <div className="bg-primary-ash h-px mt-3"></div>
       <div>
-        <h5 className="font-inter font-semibold text-base">
-          Part shirt, part jacket, all style.
-        </h5>
+        <h5 className="font-inter font-semibold text-base">About Product</h5>
         <p className="font-inter font-normal text-black text-sm mt-3">
-          Meet your new chilly weather staple. The ReWool® Oversized Shirt
-          Jacket has all the classic shirt detailing—collar, cuffs with buttons,
-          and a shirttail hem, along with two front chest flap pockets and
-          on-seam pockets. The sleeves are fully lined for added warmth and it’s
-          made with a GRS-certified recycled Italian Wool and GRS-certified
-          recycled nylon blend. Think cozy, comfy, and oh-so easy to layer. With
-          the goal of increasing the use of recycled materials and reducing the
-          harmful impacts of production, the Global Recycled Standard (GRS) sets
-          requirements for third-party certification of recycled input in
-          products—including chain of custody, social and environmental
-          practices, and chemical restrictions.
+          {productData.description}
         </p>
       </div>
       <div className="bg-primary-ash h-px mb-5"></div>

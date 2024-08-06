@@ -54,45 +54,6 @@ export const Header: React.FC = () => {
 };
 
 const Navbar: React.FC = () => {
-  const miniNavbar: NavItem[] = [
-    {
-      path: "",
-      name: "Holiday Gifting",
-    },
-    {
-      path: "",
-      name: "New Arrivals",
-    },
-    {
-      path: "",
-      name: "Best-Sellers",
-    },
-    {
-      path: "",
-      name: "Clothing",
-    },
-    {
-      path: "",
-      name: "Tops & Sweaters",
-    },
-    {
-      path: "",
-      name: "Pants & Jeans",
-    },
-    {
-      path: "",
-      name: "Outerwear",
-    },
-    {
-      path: "",
-      name: "Shoes & Bags",
-    },
-    {
-      path: "",
-      name: "Sale",
-    },
-  ];
-
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
   const handleShowNavbar = () => {
@@ -256,19 +217,6 @@ const Navbar: React.FC = () => {
                 </SheetContent>
               </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center border-b border-[#DDDBDC] h-[10vh]">
-            <nav className="h-full flex items-center gap-x-5 text-[#262626] ml-[-2vw]">
-              {miniNavbar.map((nav, index) => (
-                <Link
-                  href={nav.path}
-                  key={index}
-                  className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-white hover:border-[#262626]"
-                >
-                  {nav.name}
-                </Link>
-              ))}
-            </nav>
           </div>
         </div>
       </section>
