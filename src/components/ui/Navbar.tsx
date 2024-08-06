@@ -101,14 +101,19 @@ const Navbar: React.FC = () => {
                       height={16}
                     />
                   </button>
-                  <button>
-                    <Image
-                      src="/assets/ShoppingCartSimple.svg"
-                      alt="cart"
-                      width={16}
-                      height={16}
-                    />
-                  </button>
+                  <SheetTrigger asChild>
+                    <button>
+                      <Image
+                        src="/assets/ShoppingCartSimple.svg"
+                        alt="cart"
+                        width={16}
+                        height={16}
+                      />
+                    </button>
+                  </SheetTrigger>
+                  <SheetContent>
+                    <div>cart sheet o</div>
+                  </SheetContent>
                 </div>
                 {showNavbar && (
                   <div className="absolute md:top-[7vh] top-[10vh] bg-white w-[95%] shadow-md">
