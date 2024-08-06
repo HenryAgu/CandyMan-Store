@@ -27,7 +27,7 @@ interface ProductProps {
   error?: unknown;
 }
 
-const MenProductsPage: React.FC = () => {
+const WomenProductsPage: React.FC = () => {
   const { data, isLoading, error } = useQuery<Product[]>({
     queryKey: ["womenData"],
     queryFn: () =>
@@ -38,9 +38,9 @@ const MenProductsPage: React.FC = () => {
   console.log(data)
 
   return (
-    <div>
+    <div className="mx-auto h-full px-0 w-full container">
       <Navbar />
-      <div className="flex flex-col justify-between gap-y-10 lg:flex-row w-11/12 mx-auto my-20">
+      <div className="flex flex-col justify-between gap-y-10 lg:flex-row gap-x-10 w-11/12 mx-auto my-20">
         <SideBar productData={data ?? []} />
         <MainBar productData={data ?? []} isLoading={isLoading} error={error} />
       </div>
@@ -235,4 +235,4 @@ const MainBar = ({ productData, isLoading, error }: ProductProps) => {
   );
 };
 
-export default MenProductsPage;
+export default WomenProductsPage;

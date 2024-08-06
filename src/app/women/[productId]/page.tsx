@@ -27,7 +27,7 @@ interface ProductProps {
   error?: unknown;
 }
 
-const MenProductPage = ({ params }: any) => {
+const WomenProductPage = ({ params }: any) => {
   const productId = params.productId;
   const { data, isLoading, error } = useQuery<Product>({
     queryKey: ["singeWomenData"],
@@ -37,7 +37,7 @@ const MenProductPage = ({ params }: any) => {
       ),
   });
   return (
-    <div>
+    <div className="mx-auto h-full px-0 w-full container">
       <Navbar />
       <div className="flex flex-col-reverse gap-y-2 lg:flex-row lg:gap-x-6 w-11/12 mx-auto lg:my-20">
         <ProductDetailsSidebar
@@ -106,7 +106,7 @@ const ProductDetailMainbar = ({
     <div className="flex flex-col gap-y-5 basis-[30%] h-fit shrink-0  mt-5 lg:mt-0">
       <div>
         <span className="font-inter font-normal text-xs text-gray">
-          <Link href="/men">Men</Link> / {productData.category}
+          <Link href="/women">Women</Link> / {productData.category}
         </span>
         <div className="flex gap-x-4 justify-between">
           <h1 className="font-inter font-normal text-2xl text-black max-w-[260px]">
@@ -172,4 +172,4 @@ const ProductDetailMainbar = ({
   );
 };
 
-export default MenProductPage;
+export default WomenProductPage;

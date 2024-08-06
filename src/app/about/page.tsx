@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const page: FC = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="mx-auto h-full px-0 w-full container">
       <Navbar />
       <div className="bg-[url('/assets/about-hero.png')] bg-center bg-cover bg-no-repeat h-screen w-full">
         <div className="flex flex-col gap-y-5 items-center justify-center h-full text-center">

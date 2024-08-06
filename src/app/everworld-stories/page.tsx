@@ -63,7 +63,7 @@ const page: FC = () => {
     },
   ];
   return (
-    <div>
+    <div className="mx-auto h-full px-0 w-full container">
       <Navbar />
       <div className="w-11/12 mx-auto my-16">
         <div className="bg-primary w-full h-2 lg:h-3.5"></div>

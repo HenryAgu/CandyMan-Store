@@ -37,7 +37,7 @@ const MenProductPage = ({ params }: any) => {
       ),
   });
   return (
-    <div>
+    <div className="mx-auto h-full px-0 w-full container">
       <Navbar />
       <div className="flex flex-col-reverse gap-y-2 lg:flex-row lg:gap-x-6 w-11/12 mx-auto lg:my-20">
         <ProductDetailsSidebar

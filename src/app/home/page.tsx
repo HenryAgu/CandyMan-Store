@@ -10,13 +10,6 @@ interface CategoryItem {
   name: string;
 }
 
-interface FavouriteItem {
-  image: string;
-  name: string;
-  brand: string;
-  price: string;
-}
-
 const Home: FC = () => {
   return (
     <div className="mx-auto h-full px-0 w-full container">
