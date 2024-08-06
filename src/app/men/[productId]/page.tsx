@@ -3,7 +3,6 @@ import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -40,7 +39,7 @@ const MenProductPage = ({ params }: any) => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col-reverse gap-y-10 lg:flex-row lg:gap-x-6 w-11/12 mx-auto lg:my-20">
+      <div className="flex flex-col-reverse gap-y-2 lg:flex-row lg:gap-x-6 w-11/12 mx-auto lg:my-20">
         <ProductDetailsSidebar
           productData={data}
           isLoading={isLoading}
