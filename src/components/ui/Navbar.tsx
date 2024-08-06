@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
                         <AiOutlineClose className="text-[#262626] font-black text-xl" />
                       </button>
                       <Link
-                        href=""
+                        href="/women"
                         className="h-full font-semibold text-sm flex items-center transition ease-in-out delay-150 hover:underline"
                       >
                         Women
@@ -153,7 +153,7 @@ const Navbar: React.FC = () => {
               <div className="h-[10vh]">
                 <nav className="h-full flex items-center gap-x-5 text-[#262626]">
                   <Link
-                    href=""
+                    href="/women"
                     className="h-full font-normal font-inter text-sm flex items-center border-b-2 transition ease-in-out delay-150 border-transparent hover:border-[#262626]"
                   >
                     Women
