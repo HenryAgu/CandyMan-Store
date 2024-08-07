@@ -221,7 +221,7 @@ const Navbar: React.FC = () => {
                 <SheetContent>
                   <SheetHeader>
                     <SheetDescription className="text-right">
-                      <SheetClose className="p-6">
+                      <SheetClose className="p-3 lg:p-6">
                         <svg
                           width="24"
                           height="24"
