@@ -8,6 +8,7 @@ import Footer from "@/components/ui/Footer";
 interface CategoryItem {
   image: string;
   name: string;
+  path: string;
 }
 
 const Home: FC = () => {
@@ -21,7 +22,7 @@ const Home: FC = () => {
             <p className="font-normal font-inter text-2xl">
               Get peak comfy-chic <br /> with new winter essentials.
             </p>
-            <Link href="">
+            <Link href="/men">
               <button className="uppercase font-inter w-[80%] mx-auto lg:mx-0 lg:w-full font-normal text-sm text-[#262626] bg-white py-3">
                 shop now
               </button>
@@ -30,7 +31,7 @@ const Home: FC = () => {
         </div>
         <Category />
         <Testimonial />
-        <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"></div>
+        <div className="bg-[#262626] h-[1px] w-11/12 mx-auto my-10"/>
         <Fashion />
         <Footer />
       </main>
@@ -42,37 +43,26 @@ const Category: FC = () => {
   const category: CategoryItem[] = [
     {
       image: "/assets/category1.png",
-      name: "Shirts",
+      name: "men",
+      path: "/men",
     },
     {
       image: "/assets/category3.png",
-      name: "tees",
+      name: "women",
+      path: "/women",
     },
     {
       image: "/assets/category5.png",
-      name: "sweaters",
-    },
-
-    {
-      image: "/assets/category6.png",
-      name: "outwear",
-    },
-    {
-      image: "/assets/category2.png",
-      name: "denim",
-    },
-
-    {
-      image: "/assets/category4.png",
-      name: "pants",
+      name: "jelwery",
+      path: "/"
     },
   ];
   return (
-    <div className="w-full lg:w-11/12 mx-auto my-10 lg:my-14">
+    <div className="mx-auto my-10 lg:my-14">
       <h1 className="text-center font-normal font-inter text-2xl">
         Shop by Category
       </h1>
-      <div className="scroll flex overflow-x-scroll snap-mandatory snap-x no-scrollbar gap-x-2 mt-5">
+      <div className="w-11/12 lg:w-full mx-auto scroll flex lg:justify-center overflow-x-scroll snap-mandatory snap-x no-scrollbar gap-x-2 mt-5">
         {category.map((categoryItem, index) => (
           <div
             className="flex flex-col shrink-0 items-center justify-center gap-y-3"
@@ -85,7 +75,7 @@ const Category: FC = () => {
               height={263}
             />
             <Link
-              href=""
+              href={categoryItem.path}
               className="uppercase underline font-normal font-inter text-sm lg:text-sm "
             >
               {categoryItem.name}
@@ -93,8 +83,8 @@ const Category: FC = () => {
           </div>
         ))}
       </div>
-      <div className="hidden lg:grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-10 lg:my-20">
-        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center group hover:grayscale">
+      <div className="hidden lg:grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-10 lg:my-20 ">
+        <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] flex flex-col gap-y-3.5 items-center justify-center group hover:grayscale">
           <h3 className="font-inter font-normal text-5xl text-white opacity-0 transition-opacity duration-1000 group-hover:opacity-100">
             New Arrivals
           </h3>
@@ -125,7 +115,7 @@ const Category: FC = () => {
           </Link>
         </div>
       </div>
-      <div className="grid lg:hidden md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-3 lg:gap-x-3 my-10 lg:my-20">
+      <div className="grid lg:hidden md:grid-cols-2 md:gap-3 lg:grid-cols-3 gap-y-5 lg:gap-x-3 my-10 lg:my-20 w-11/12 lg:w-full mx-auto">
         <div className="bg-[url('/assets/image.png')] bg-center bg-cover bg-no-repeat h-[534px] w-full flex flex-col gap-y-3.5 items-center justify-center">
           <h3 className="font-inter font-normal text-5xl text-white">
             New Arrivals
