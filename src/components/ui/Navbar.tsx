@@ -16,6 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Cart from "@/app/cart/Cart";
 
 interface NavItem {
   path: string;
@@ -218,7 +219,42 @@ const Navbar: React.FC = () => {
                   </button>
                 </SheetTrigger>
                 <SheetContent>
-                  <div>cart sheet o</div>
+                  <SheetHeader>
+                    <SheetDescription className="text-right">
+                      <SheetClose className="p-6">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_79_1575)">
+                            <path
+                              d="M18.75 5.25L5.25 18.75"
+                              stroke="#262626"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M18.75 18.75L5.25 5.25"
+                              stroke="#262626"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_79_1575">
+                              <rect width="24" height="24" fill="white" />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </SheetClose>
+                    </SheetDescription>
+                  </SheetHeader>
+                  <Cart />
                 </SheetContent>
               </div>
             </div>

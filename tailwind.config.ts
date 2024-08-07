@@ -56,6 +56,9 @@ const config = {
           gray:{
             100: "#F5F4F4",
           },
+          dark:{
+            900: "#262626",
+          }
         }
       },
       borderRadius: {
