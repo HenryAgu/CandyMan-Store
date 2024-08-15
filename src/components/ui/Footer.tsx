@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="bg-candy-gray-100 pt-16 pb-5 lg:px-[72px]">
-      <div className="flex flex-col md:flex-col gap-y-10 md:gap-y-10 lg:flex-row justify-between w-11/12 mx-auto">
+      <div className="flex flex-col md:flex-col gap-y-10 md:gap-y-10 lg:flex-row justify-between mx-auto  container">
         <div className="flex flex-col md:flex-row lg:flex-row gap-y-10 md:gap-x-20 lg:gap-x-20">
           <div>
             <h3 className="text-primary text-base font-inter font-semibold">
@@ -155,14 +155,14 @@ const Footer = () => {
             placeholder="Email address"
             className="px-[18px] py-[13px] font-normal font-inter text-sm w-full border border-primary-ash"
           />
-          <button className="px-[18px] py-[18px] bg-primary">
+          <button type="button" className="px-[18px] py-[18px] bg-primary">
             <svg
               width="24"
               height="25"
               viewBox="0 0 24 25"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-            >
+            />
               <g clip-path="url(#clip0_376_1628)">
                 <path
                   d="M3.75 12.5H20.25"
@@ -187,7 +187,6 @@ const Footer = () => {
                   />
                 </clipPath>
               </defs>
-            </svg>
           </button>
         </div>
       </div>

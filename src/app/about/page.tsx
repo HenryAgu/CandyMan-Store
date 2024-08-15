@@ -1,13 +1,12 @@
-import { FC } from "react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import Image from "next/image";
 
-const page: FC = () => {
+const page = () => {
   return (
-    <div className="mx-auto h-full px-0 w-full container">
+    <div className="mx-auto h-full px-0 w-full">
       <Navbar />
-      <div className="bg-[url('/assets/about-hero.png')] bg-center bg-cover bg-no-repeat h-screen w-full">
+      <div className="bg-[url('/assets/about-hero.png')] bg-center bg-cover bg-no-repeat h-screen w-full container mx-auto">
         <div className="flex flex-col gap-y-5 items-center justify-center h-full text-center">
           <h1 className="font-normal font-inter text-5xl lg:text-7xl text-white">
             We believe <br /> we can all <br /> make <br /> a difference.
@@ -18,7 +17,7 @@ const page: FC = () => {
           </p>
         </div>
       </div>
-      <div className="text-center bg-white my-16 w-11/12 md:w-10/12 lg:w-6/12 mx-auto">
+      <div className="text-center bg-white my-16 w-11/12 md:w-10/12 lg:w-6/12 container mx-auto">
         <h1 className="font-inter font-normal text-2xl lg:text-4xl leading-10 text-black">
           At Everlane, we want the right choice to be as easy as putting on a
           great T-shirt. That’s why we partner with the best, ethical factories
@@ -46,7 +45,7 @@ const page: FC = () => {
           </p>
         </div>
       </div>
-      <div className="bg-[url('/assets/about-hero.png')] bg-center bg-cover bg-no-repeat h-[500px] lg:h-screen w-full"></div>
+      <div className="bg-[url('/assets/about-hero.png')] bg-center bg-cover bg-no-repeat h-[500px] lg:h-screen w-full"/>
       <div className="w-full h-fit flex flex-col md:flex-row lg:flex-row">
         <div className="bg-[#e6ded8] w-full lg:w-2/4 mx-auto flex flex-col md:p-8 p-10 lg:p-20 items-start justify-center h-[350px] lg:h-auto md:h-[40vh]">
           <span className="font-normal font-inter text-xs">OUR QUALITY</span>
@@ -64,7 +63,7 @@ const page: FC = () => {
           <Image src="/assets/about2.png" alt="image" width={700} height={552} className="w-full aspect-[700/552]" />
         </div>
       </div>
-      <div className="bg-[url('/assets/about3.png')] bg-center bg-cover bg-no-repeat h-[500px] lg:h-screen w-full"></div>
+      <div className="bg-[url('/assets/about3.png')] bg-center bg-cover bg-no-repeat h-[500px] lg:h-screen w-full"/>
       <div className="w-full h-fit flex flex-col md:flex-row lg:flex-row mb-5 lg:mb-10">
         <div className="w-full lg:w-2/4 mx-auto lg:h-auto md:h-[40vh]">
           <Image src="/assets/prices.png" alt="image" width={700} height={660} className="w-full aspect-[700/660]" />
@@ -82,7 +81,7 @@ const page: FC = () => {
           </p>
         </div>
       </div>
-      <div className="w-11/12 mx-auto mb-10 lg:mb-20 flex flex-col items-center justify-center">
+      <div className="w-11/12 mx-auto mb-10 lg:mb-20 flex flex-col items-center justify-center container">
         <h1 className="font-normal font-inter text-xl lg:text-3xl">
           More to Explore
         </h1>

@@ -39,9 +39,9 @@ const MenProductsPage: React.FC = () => {
   });
 
   return (
-    <div className="mx-auto h-full px-0 w-full container">
+    <div className="mx-auto h-full px-0 w-full">
       <Navbar />
-      <div className="flex flex-col justify-between gap-y-10 lg:flex-row gap-x-10 w-11/12 mx-auto my-20">
+      <div className="flex flex-col justify-between gap-y-10 lg:flex-row gap-x-10 mx-auto my-20  container">
         <SideBar productData={data ?? []} />
         <MainBar productData={data ?? []} isLoading={isLoading} error={error} />
       </div>
