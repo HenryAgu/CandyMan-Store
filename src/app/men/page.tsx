@@ -184,7 +184,7 @@ const MainBar = ({ productData, isLoading, error }: ProductProps) => {
         </div>
       </div>
     );
-  if (error) return "An error has occurred: " + (error as Error).message;
+  if (error) return {`An error has occurred:  + ${(error as Error).message}`};
   const displayedProducts = productData ? productData.slice(0, 27) : [];
   return (
     <div className="basis-4/5 shrink-0 w-full">

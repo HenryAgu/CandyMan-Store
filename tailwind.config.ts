@@ -55,6 +55,7 @@ const config = {
         candy:{
           gray:{
             100: "#F5F4F4",
+            300: "#DDDBDC",
           },
           dark:{
             900: "#262626",
