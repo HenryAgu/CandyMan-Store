@@ -18,19 +18,10 @@ interface CartResponse {
   products: Product[];
 }
 
-interface Product {
-  productId: number;
-  image: string;
-  quantity: number;
-  title: string;
-  price: number;
-}
-
 interface CartListProps {
   item: Product;
   onUnitPriceChange: (productId: number, unitPrice: number) => void;
 }
-
 
 const CartContent = () => {
   const { data, isLoading, error } = useQuery<CartResponse>({
@@ -46,12 +37,17 @@ const CartContent = () => {
   }, []);
 
   const cartData = data?.products || [];
-  console.log(cartData);
+
+  // Calculate subtotal directly from cartData
+  const subtotal = cartData.reduce((accumulator, item) => {
+    const price = item.price ?? 0;
+    const itemTotal = price * item.quantity;
+    return accumulator + itemTotal;
+  }, 0);
+
+  console.log(subtotal);
 
   if (error) return <div>Error loading cart data</div>;
-
-  // Calculate subtotal based on the price and quantity of each item
-  const subtotal = totalPrice;
 
   return (
     <>
@@ -90,9 +86,6 @@ const CartContent = () => {
   );
 };
 
-
-
-
 const CartList: React.FC<CartListProps> = ({ item, onUnitPriceChange }) => {
   const { data: cartListData, isLoading, error } = useQuery<Product>({
     queryKey: ["product", item.productId],
@@ -107,12 +100,10 @@ const CartList: React.FC<CartListProps> = ({ item, onUnitPriceChange }) => {
       const unitPrice = cartListData.price * item.quantity;
       onUnitPriceChange(item.productId, unitPrice);
     }
-  }, [cartListData, item.quantity, onUnitPriceChange]);
+  }, [cartListData, item.quantity, onUnitPriceChange, item.productId]);
 
   if (isLoading) return <Skeleton className="mb-4 h-[20vh]" />;
   if (error) return <div>Error loading product details</div>;
-
-  const price = cartListData?.price ?? 0;
 
   return (
     <div className="flex gap-x-4 mb-4 justify-between">
@@ -140,7 +131,7 @@ const CartList: React.FC<CartListProps> = ({ item, onUnitPriceChange }) => {
         </div>
         <div className="flex items-end justify-between">
           <p className="text-candy-dark-900 text-xs font-semibold">
-            ${cartListData?.price * item.quantity || "0"}
+            ${cartListData?.price ?? 0}
           </p>
           <div className="">
             <span className="text-black font-bold text-xs">
@@ -153,6 +144,5 @@ const CartList: React.FC<CartListProps> = ({ item, onUnitPriceChange }) => {
     </div>
   );
 };
-
 
 export default CartContent;
