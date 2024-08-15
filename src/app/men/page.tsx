@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useState } from "react";
 
 // Define interfaces for the expected data
 interface Size {
+  id: string;
   value: string;
 }
 
@@ -50,25 +52,25 @@ const MenProductsPage: React.FC = () => {
 
 const SideBar: React.FC<ProductProps> = ({ productData }) => {
   const waistSizes: Size[] = [
-    { value: "36" },
-    { value: "36" },
-    { value: "36" },
-    { value: "36" },
-    { value: "36" },
-    { value: "36" },
-    { value: "36" },
-    { value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
+    { id: crypto.randomUUID(), value: "36" },
   ];
 
   const ClothesSizes: Size[] = [
-    { value: "XXS" },
-    { value: "XS" },
-    { value: "S" },
-    { value: "M" },
-    { value: "L" },
-    { value: "XL" },
-    { value: "XXL" },
-    { value: "XXXL" },
+    { id: crypto.randomUUID(), value: "XXS" },
+    { id: crypto.randomUUID(), value: "XS" },
+    { id: crypto.randomUUID(), value: "S" },
+    { id: crypto.randomUUID(), value: "M" },
+    { id: crypto.randomUUID(), value: "L" },
+    { id: crypto.randomUUID(), value: "XL" },
+    { id: crypto.randomUUID(), value: "XXL" },
+    { id: crypto.randomUUID(), value: "XXXL" },
   ];
 
   const [showSize, setShowSize] = useState<boolean>(false);
@@ -83,15 +85,16 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
         <span className="font-inter font-normal text-xs text-black">
           {productData.length} Products
         </span>
-        <div className="h-px bg-[#DDDBDC] w-full"></div>
+        <div className="h-px bg-[#DDDBDC] w-full" />
         <div className="flex flex-col gap-y-5">
           <h1 className="font-inter font-semibold text-sm mb-2">Size</h1>
           <div>
             <p className="font-inter font-normal text-xs text-black">Waist</p>
             <div className="mt-2 grid grid-cols-4 gap-1">
-              {waistSizes.map((waistSize, index) => (
+              {waistSizes.map((waistSize) => (
                 <button
-                  key={index}
+                  type="button"
+                  key={waistSize.id}
                   className="bg-[#F5F4F4] p-3 font-inter font-normal text-xs"
                 >
                   {waistSize.value}
@@ -104,9 +107,10 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
               Clothing
             </p>
             <div className="mt-2 grid grid-cols-4 gap-1">
-              {ClothesSizes.map((clotheSize, index) => (
+              {ClothesSizes.map((clotheSize) => (
                 <button
-                  key={index}
+                  type="button"
+                  key={clotheSize.id}
                   className="bg-[#F5F4F4] p-3 font-inter font-normal text-xs"
                 >
                   {clotheSize.value}
@@ -125,7 +129,7 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
             <h1 className="font-inter font-semibold text-sm mb-2 text-black">
               Size
             </h1>
-            <button onClick={handleShowSize}>
+            <button type="button" onClick={handleShowSize}>
               {showSize ? (
                 <IoIosArrowDown className="font-inter font-semibold text-sm mb-2 text-black" />
               ) : (
@@ -140,9 +144,10 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
                   Waist
                 </p>
                 <div className="mt-2 grid grid-cols-4 gap-1">
-                  {waistSizes.map((waistSize, index) => (
+                  {waistSizes.map((waistSize) => (
                     <button
-                      key={index}
+                      type="button"
+                      key={waistSize.id}
                       className="bg-[#F5F4F4] p-3 font-inter font-normal text-xs"
                     >
                       {waistSize.value}
@@ -155,9 +160,10 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
                   Clothing
                 </p>
                 <div className="mt-2 grid grid-cols-4 gap-1">
-                  {ClothesSizes.map((clotheSize, index) => (
+                  {ClothesSizes.map((clotheSize) => (
                     <button
-                      key={index}
+                      type="button"
+                      key={clotheSize.id}
                       className="bg-[#F5F4F4] p-3 font-inter font-normal text-xs"
                     >
                       {clotheSize.value}
@@ -184,7 +190,8 @@ const MainBar = ({ productData, isLoading, error }: ProductProps) => {
         </div>
       </div>
     );
-  if (error) return {`An error has occurred:  + ${(error as Error).message}`};
+  if (error)
+    return <>{`An error has occurred:  + ${(error as Error).message}`}</>;
   const displayedProducts = productData ? productData.slice(0, 27) : [];
   return (
     <div className="basis-4/5 shrink-0 w-full">

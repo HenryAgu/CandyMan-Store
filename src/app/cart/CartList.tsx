@@ -112,6 +112,8 @@ const CartList: React.FC<CartListProps> = ({ item, onUnitPriceChange }) => {
   if (isLoading) return <Skeleton className="mb-4 h-[20vh]" />;
   if (error) return <div>Error loading product details</div>;
 
+  const price = cartListData?.price ?? 0;
+
   return (
     <div className="flex gap-x-4 mb-4 justify-between">
       <div className="w-full basis-1/5 border border-candy-gray-300 rounded-sm">
