@@ -14,7 +14,7 @@ interface Product {
 interface CartResponse {
   id: number;
   userId: number;
-  date: string; // or `Date` if you're working with Date objects
+  date: string; 
   products: Product[];
 }
 
@@ -29,6 +29,7 @@ const CartContent = () => {
     queryFn: () =>
       fetch("https://fakestoreapi.com/carts/1").then((res) => res.json()),
   });
+  
 
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -38,14 +39,6 @@ const CartContent = () => {
 
   const cartData = data?.products || [];
 
-  // Calculate subtotal directly from cartData
-  const subtotal = cartData.reduce((accumulator, item) => {
-    const price = item.price ?? 0;
-    const itemTotal = price * item.quantity;
-    return accumulator + itemTotal;
-  }, 0);
-
-  console.log(subtotal);
 
   if (error) return <div>Error loading cart data</div>;
 
@@ -69,7 +62,7 @@ const CartContent = () => {
             </span>
           </h3>
           <h3 className="font-inter text-black font-semibold text-sm lg:text-base">
-            ${subtotal.toFixed(2)}
+            ${1}
           </h3>
         </div>
         <button

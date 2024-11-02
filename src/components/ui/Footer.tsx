@@ -162,8 +162,8 @@ const Footer = () => {
               viewBox="0 0 24 25"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-            />
-              <g clip-path="url(#clip0_376_1628)">
+            >
+              <g clip-path="url(#clip0_522_359)">
                 <path
                   d="M3.75 12.5H20.25"
                   stroke="white"
@@ -178,7 +178,7 @@ const Footer = () => {
                 />
               </g>
               <defs>
-                <clipPath id="clip0_376_1628">
+                <clipPath id="clip0_522_359">
                   <rect
                     width="24"
                     height="24"
@@ -187,6 +187,7 @@ const Footer = () => {
                   />
                 </clipPath>
               </defs>
+            </svg>
           </button>
         </div>
       </div>
