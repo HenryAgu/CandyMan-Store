@@ -230,7 +230,7 @@ const ProductDetailMainbar = ({
           className="w-full bg-primary text-white mt-10 py-3 font-inter font-normal text-sm"
           onClick={handleAddToCart}
         >
-          ADD TO CART
+          {addToCartMutation.isPending ? "ADDING TO CART..." : "ADD TO CART"}
         </button>
       </div>
       <div className="bg-primary-ash h-px mt-3" />

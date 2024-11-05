@@ -139,8 +139,8 @@ const ProductDetailMainbar = ({
       return;
     }
 
-    const today = new Date(); 
-    const year = today.getFullYear(); 
+    const today = new Date();
+    const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, "0");
     const day = String(today.getDate()).padStart(2, "0");
 
@@ -219,7 +219,7 @@ const ProductDetailMainbar = ({
           className="w-full bg-primary text-white mt-10 py-3 font-inter font-normal text-sm"
           onClick={handleAddToCart}
         >
-          {isLoading ? 'Adding...' : 'ADD TO CART'}
+          {addToCartMutation.isPending ? "ADDING TO CART..." : "ADD TO CART"}
         </button>
       </div>
       <div className="bg-primary-ash h-px mt-3" />
