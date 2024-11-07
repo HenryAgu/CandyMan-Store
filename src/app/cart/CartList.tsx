@@ -15,7 +15,7 @@ interface Product {
 interface CartResponse {
   id: number;
   userId: number;
-  date: string; 
+  date: string;
   products: Product[];
 }
 
@@ -25,18 +25,32 @@ interface CartListProps {
 }
 
 const CartContent = () => {
-  const { data: cartData, isLoading: isLoadingCart, error: cartError } = useQuery<CartResponse>({
+  const {
+    data: cartData,
+    isLoading: isLoadingCart,
+    error: cartError,
+  } = useQuery<CartResponse>({
     queryKey: ["cartData"],
-    queryFn: () => fetch("https://fakestoreapi.com/carts/1").then((res) => res.json()),
+    queryFn: () =>
+      fetch("https://fakestoreapi.com/carts/1").then((res) => res.json()),
   });
 
-  const productIds = cartData?.products?.map(product => product.productId) || [];
+  const productIds =
+    cartData?.products?.map((product) => product.productId) || [];
 
-  const { data: productsData, isLoading: isLoadingProducts, error: productsError } = useQuery<Product[]>({
+  const {
+    data: productsData,
+    isLoading: isLoadingProducts,
+    error: productsError,
+  } = useQuery<Product[]>({
     queryKey: ["products", productIds],
     queryFn: () =>
       Promise.all(
-        productIds.map(id => fetch(`https://fakestoreapi.com/products/${id}`).then(res => res.json()))
+        productIds.map((id) =>
+          fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
+            res.json()
+          )
+        )
       ),
     enabled: productIds.length > 0, // Only run this query if there are product IDs
   });
@@ -46,24 +60,38 @@ const CartContent = () => {
   useEffect(() => {
     if (productsData && cartData) {
       const total = productsData.reduce((total, product) => {
-        const cartItem = cartData?.products?.find(item => item.productId === product.id);
+        const cartItem = cartData?.products?.find(
+          (item) => item.productId === product.id
+        );
         return total + (cartItem ? product.price * cartItem.quantity : 0);
       }, 0);
       setTotalPrice(total);
     }
   }, [productsData, cartData]);
 
-  if (isLoadingCart || isLoadingProducts) return <Skeleton className="mb-4 h-[20vh]" />;
+  if (isLoadingCart || isLoadingProducts)
+    return (
+      <div className="flex flex-col gap-y-4">
+        <Skeleton className="mx-4 h-[20vh]" />
+        <Skeleton className="mx-4 h-[20vh]" />
+        <Skeleton className="mx-4 h-[20vh]" />
+      </div>
+    );
   if (cartError || productsError) return <div>Error loading data</div>;
 
   return (
     <>
       <ScrollArea className="h-[65vh] lg:h-[60vh] lg:mt-2 px-3 lg:px-6">
         {(cartData?.products || []).map((item) => {
-          const productDetails = productsData?.find(product => product.id === item.productId);
+          const productDetails = productsData?.find(
+            (product) => product.id === item.productId
+          );
 
           return (
-            <div key={item.productId} className="flex gap-x-4 mb-4 justify-between">
+            <div
+              key={item.productId}
+              className="flex gap-x-4 mb-4 justify-between"
+            >
               <div className="w-full basis-1/5 border border-candy-gray-300 rounded-sm">
                 <img
                   src={productDetails?.image || "/assets/image.png"}
@@ -127,6 +155,5 @@ const CartContent = () => {
     </>
   );
 };
-
 
 export default CartContent;
