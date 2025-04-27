@@ -13,7 +13,7 @@ interface CategoryItem {
 
 const Home = () => {
 	return (
-		<div className="">
+		<>
 			<main className="">
 				<Navbar />
 				<div className="mx-auto px-0 container">
@@ -40,7 +40,7 @@ const Home = () => {
 				<Fashion />
 				<Footer />
 			</main>
-		</div>
+		</>
 	);
 };
 

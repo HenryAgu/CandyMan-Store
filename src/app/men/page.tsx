@@ -80,8 +80,8 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
   };
 
   return (
-    <div>
-      <div className="hidden lg:flex flex-col gap-y-5 basis-1/5 shrink-0">
+    <main>
+      <aside className="hidden lg:flex flex-col gap-y-5 basis-1/5 shrink-0">
         <span className="font-inter font-normal text-xs text-black">
           {productData.length} Products
         </span>
@@ -119,8 +119,8 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex lg:hidden flex-col gap-y-5 basis-1/5 shrink-0">
+      </aside>
+      <aside className="flex lg:hidden flex-col gap-y-5 basis-1/5 shrink-0">
         <span className="font-inter font-normal text-xs text-black">
           {productData.length} Products
         </span>
@@ -174,8 +174,8 @@ const SideBar: React.FC<ProductProps> = ({ productData }) => {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </aside>
+    </main>
   );
 };
 
