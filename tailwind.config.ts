@@ -10,6 +10,10 @@ const config = {
 	],
   prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -51,6 +55,7 @@ const config = {
             300: "#DDDBDC",
           },
           dark:{
+            500: "#515151",
             900: "#262626",
           }
         }

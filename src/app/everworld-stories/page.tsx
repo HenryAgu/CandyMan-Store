@@ -75,7 +75,7 @@ const page = () => {
 	return (
 		<div className="mx-auto h-full px-0 w-full">
 			<Navbar />
-			<div className="mx-auto my-16 container">
+			<div className="mx-auto py-16 lg:px-16 container">
 				<div className="bg-primary w-full h-2 lg:h-3.5" />
 				<h1 className="font-inter font-semibold text-primary text-6xl lg:text-[160px] leading-[80px] lg:leading-[176px]">
 					everworld

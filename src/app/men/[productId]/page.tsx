@@ -162,7 +162,7 @@ const ProductDetailMainbar = ({
   }
 
   return (
-    <div className="flex flex-col gap-y-5 basis-[30%] h-fit shrink-0">
+    <div className="flex flex-col gap-y-5 basis-[30%] h-fit shrink-0 lg:px-16">
       <div>
         <span className="font-inter font-normal text-xs text-gray">
           <Link href="/men">Men</Link> / {productData.category}
