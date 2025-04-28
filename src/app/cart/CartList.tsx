@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -142,12 +143,12 @@ const CartContent = () => {
             ${totalPrice.toFixed(2)}
           </h3>
         </div>
-        <button
+        <Link href="/checkout"
           type="button"
-          className="uppercase bg-candy-dark-900 text-white py-3 font-inter font-normal text-xs lg:text-sm tracking-[1.4px] leading-[16.8px]"
+          className="uppercase text-center bg-candy-dark-900 text-white py-3 font-inter font-normal text-xs lg:text-sm tracking-[1.4px] leading-[16.8px]"
         >
           continue to checkout
-        </button>
+        </Link>
         <p className="text-center text-black text-xs font-inter font-semibold">
           Psst, get it now before it sells out.
         </p>
