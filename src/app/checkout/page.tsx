@@ -2,11 +2,12 @@
 
 import { useRouter } from "next/navigation";
 
-import Footer from "@/components/ui/Footer";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/ui/Navbar";
-import React from "react";
-import CheckOutForm from "@/components/CheckOutForm";
 import Order from "@/components/Order";
+import Footer from "@/components/ui/Footer";
+
+const CheckOutForm = dynamic(() => import("@/components/CheckOutForm"), { ssr: false });
 
 const CheckOutPage = () => {
   const router = useRouter();
@@ -48,3 +49,4 @@ const CheckOutPage = () => {
 };
 
 export default CheckOutPage;
+
